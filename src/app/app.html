@@ -1,0 +1,633 @@
+<header class="main-header">
+    <div class="header-sticky">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container ">
+        
+          <div class="collapse navbar-collapse main-menu" id="mainMenu">
+          <a class="navbar-brand" href="home" style="display:flex;align-items:center;gap:10px;">
+            <img src="assets/images/logo/BHAGAVADKARMA - Logo.svg" alt="Bhagavad Karma" class="logo" style="filter:brightness(0) invert(1);width:49px;">
+            <span style="color:#fff;font-weight:700;font-size:18px;white-space:nowrap;">BHAGAVADKARMA</span>
+          </a>
+            <div class="nav-menu-wrapper">
+              
+              <ul class="navbar-nav mr-auto" id="menu">
+                <li class="nav-item"><a class="nav-link" href="home">Home</a></li>
+                <li class="nav-item submenu"><a class="nav-link" href="our-guru">About Us</a>
+                  <ul>
+                    <li class="nav-item"><a class="nav-link" href="our-guru">Our Guru</a></li>
+                    <li class="nav-item"><a class="nav-link" href="wisdom">Wisdom</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item submenu"><a class="nav-link" href="emotional-wellness">Services</a>
+                  <ul>
+                 <li class="nav-item"><a class="nav-link" href="aura-mechanism">Aura Mechanism</a></li>
+                    <li class="nav-item"><a class="nav-link" href="emotional-wellness">Emotional Wellness</a></li>
+                    <li class="nav-item"><a class="nav-link" href="physical-wellness">Physical Wellness</a></li>
+                    <li class="nav-item"><a class="nav-link" href="spiritual-wellness">Spiritual Wellness</a></li>
+                    <li class="nav-item"><a class="nav-link" href="therapeutic-wellness">Therapeutic Wellness</a></li>
+
+                  </ul>
+                </li>
+                <li class="nav-item submenu"><a class="nav-link" href="environment">Social Impacts</a>
+                  <ul>
+                    <li class="nav-item"><a class="nav-link" href="environment">Environment</a></li>
+                    <li class="nav-item"><a class="nav-link" href="livelihood">Livelihood</a></li>
+                    <li class="nav-item"><a class="nav-link" href="farmer-support">Farmer Support</a></li>
+                    <li class="nav-item"><a class="nav-link" href="rural-healthcare">Rural Healthcare</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="news">News</a></li>
+                <!-- <li class="nav-item "><a class="nav-link" href="#">Store</a> -->
+                  <!-- <ul>
+                    <li class="nav-item"><a class="nav-link" href="#">All Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Skincare</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Wellness - Men</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Wellness - Women</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Wellness - Children</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Sacred Healing</a></li>
+                  </ul> -->
+                <!-- </li> -->
+                <li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
+              </ul>
+            </div>
+            <div class="header-contact-btn">
+              <a href="tel:+918904072335" class="header-contact-now">
+                <i class="fa-solid fa-phone-volume"></i> +91 89040 72335
+              </a>
+
+              <!-- <div class="header-cart">
+                <button class="cart-btn" (click)="openCartDrawer()">
+                  <i class="fa-solid fa-cart-shopping"></i>
+                  <span id="cart-count">{{ cartCount() }}</span>
+                </button>
+              </div> -->
+
+              <!-- Profile Avatar Dropdown -->
+              <!-- <div class="header-profile">
+                <button class="profile-avatar" (click)="toggleProfile()" title="Account">
+                  <i class="fa-solid fa-user"></i>
+                </button>
+
+                @if (profileOpen()) {
+                  <div class="profile-dropdown">
+                    <div class="profile-header">
+                      <div class="profile-avatar-sm">
+                        <i class="fa-solid fa-user"></i>
+                      </div>
+                      <div>
+                        @if (authService.isLoggedIn()) {
+                          <strong>Welcome, {{ authService.userName() }}</strong>
+                          <span>{{ authService.userPhone() }}</span>
+                        } @else {
+                          <strong>Guest User</strong>
+                          <span>Sign in to your account</span>
+                        }
+                      </div>
+                    </div>
+                    <div class="profile-menu">
+                      @if (authService.isLoggedIn()) {
+                        <button (click)="doLogout()">
+                          <i class="fa-solid fa-right-from-bracket"></i> Logout
+                        </button>
+                      } @else {
+                        <button (click)="openLogin()">
+                          <i class="fa-solid fa-right-to-bracket"></i> Login / Sign In
+                        </button>
+                        <button class="profile-link-btn" (click)="goToMember()">
+                          <i class="fa-solid fa-user-plus"></i> Register as Member
+                        </button>
+                      }
+                    </div>
+                  </div>
+                }
+              </div> -->
+
+              <a href="appointment" class="btn-default d-xl-table d-none">Appointment</a>
+            </div>
+          </div>
+
+           <div class="mobilehumber">
+                <a class="navbar-brand" href="home" style="display:flex;align-items:center;gap:10px;">
+            <img src="assets/images/logo/BHAGAVADKARMA - Logo.svg" alt="Bhagavad Karma" class="logo" style="filter:brightness(0) invert(1);width:38px;">
+          </a>
+          <div class="navbar-toggle" (click)="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+           </div>
+
+       
+          
+        </div>
+      </nav>
+
+      <!-- ══ MOBILE MENU ══════════════════════════════════ -->
+      @if (isMenuOpen()) {
+        <div class="mobile-menu-overlay" (click)="toggleMenu()"></div>
+        <div class="mobile-menu open">
+          <div class="mobile-menu-header">
+            <a class="mobile-brand" href="home" style="display:flex;align-items:center;gap:8px;">
+              <img src="assets/images/logo/BHAGAVADKARMA - Logo.svg" alt="Bhagavad Karma" style="filter:brightness(0) invert(1);height:36px;">
+              <span style="color:#fff;font-weight:700;font-size:16px;">BHAGAVADKARMA</span>
+            </a>
+            <button class="mobile-close-btn" (click)="toggleMenu()">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <ul class="mobile-nav">
+            <li><a class="mobile-nav-link" href="home" (click)="toggleMenu()">Home</a></li>
+            <li class="mobile-submenu">
+              <a class="mobile-nav-link" (click)="toggleSubmenu($event)" style="cursor: pointer;">About Us <i class="fa-solid fa-chevron-down"></i></a>
+              <ul class="mobile-sub">
+                <li><a href="our-guru" (click)="toggleMenu()">Our Guru</a></li>
+                <li><a href="wisdom" (click)="toggleMenu()">Wisdom</a></li>
+              </ul>
+            </li>
+            <li class="mobile-submenu">
+              <a class="mobile-nav-link" (click)="toggleSubmenu($event)" style="cursor: pointer;">Services <i class="fa-solid fa-chevron-down"></i></a>
+              <ul class="mobile-sub">
+                <li><a href="emotional-wellness" (click)="toggleMenu()">Emotional Wellness</a></li>
+                <li><a href="physical-wellness" (click)="toggleMenu()">Physical Wellness</a></li>
+                <li><a href="spiritual-wellness" (click)="toggleMenu()">Spiritual Wellness</a></li>
+                <li><a href="therapeutic-wellness" (click)="toggleMenu()">Therapeutic Wellness</a></li>
+              </ul>
+            </li>
+            <li class="mobile-submenu">
+              <a class="mobile-nav-link" (click)="toggleSubmenu($event)" style="cursor: pointer;">Social Impacts <i class="fa-solid fa-chevron-down"></i></a>
+              <ul class="mobile-sub">
+                <li><a href="environment" (click)="toggleMenu()">Environment</a></li>
+                <li><a href="livelihood" (click)="toggleMenu()">Livelihood</a></li>
+                <li><a href="farmer-support" (click)="toggleMenu()">Farmer Support</a></li>
+                <li><a href="rural-healthcare" (click)="toggleMenu()">Rural Healthcare</a></li>
+              </ul>
+            </li>
+            <li><a class="mobile-nav-link" href="gallery" (click)="toggleMenu()">Gallery</a></li>
+            <li><a class="mobile-nav-link" href="news" (click)="toggleMenu()">News</a></li>
+            <!-- <li class="mobile-submenu">
+              <a class="mobile-nav-link" href="#" (click)="toggleSubmenu($event)">Store <i class="fa-solid fa-chevron-down"></i></a>
+              <ul class="mobile-sub">
+                <li><a href="#" (click)="toggleMenu()">All Products</a></li>
+                <li><a href="#" (click)="toggleMenu()">Skincare</a></li>
+                <li><a href="#" (click)="toggleMenu()">Wellness - Men</a></li>
+                <li><a href="#" (click)="toggleMenu()">Wellness - Women</a></li>
+                <li><a href="#" (click)="toggleMenu()">Wellness - Children</a></li>
+                <li><a href="#" (click)="toggleMenu()">Sacred Healing</a></li>
+              </ul>
+            </li> -->
+            <li><a class="mobile-nav-link" href="contact" (click)="toggleMenu()">Contact</a></li>
+          </ul>
+          <div class="mobile-menu-footer">
+            <a href="tel:+918904072335" class="mobile-phone">
+              <i class="fa-solid fa-phone-volume"></i> +91 89040 72335
+            </a>
+            <a href="appointment" class="mobile-appointment-btn" (click)="toggleMenu()">Appointment</a>
+          </div>
+        </div>
+      }
+      <div class="responsive-menu"></div>
+    </div>
+  </header>
+
+<router-outlet />
+
+  <footer class="footer-main">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="footer-header">
+            <div class="footer-about">
+            <div class="footer-logo" style="margin-right:23px;padding-right:17px;display:flex;align-items:center;gap:12px;">
+              <img src="assets/images/logo/BHAGAVADKARMA - Logo.svg" alt="Bhagavad Karma" class="logo" style="filter:brightness(0) invert(1); width: 64px;">
+              <span style="color:#fff;font-weight:700;font-size:20px;">BHAGAVADKARMA</span>
+            </div>
+              <div class="about-footer-content">
+                <p>Promoting spiritual awareness, education, and social welfare for the upliftment of mankind.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-3">
+          <div class="footer-links"><h3>Quick Links</h3>
+            <ul>
+              <li><a href="home">Home</a></li>
+              <li><a href="our-guru">Our Guru</a></li>
+              <!-- <li><a href="gallery">Gallery</a></li> -->
+              <li><a href="news">News</a></li>
+              <li><a href="sitemap">Sitemap</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4">
+          <div class="footer-links"><h3>Services</h3>
+            <ul>
+              <li><a href="emotional-wellness">Emotional Wellness</a></li>
+              <li><a href="physical-wellness">Physical Wellness</a></li>
+              <li><a href="spiritual-wellness">Spiritual Wellness</a></li>
+              <li><a href="therapeutic-wellness">Therapeutic Wellness</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-5">
+          <div class="footer-links footer-contact-links"><h3>Contact</h3>
+            <ul>
+              <li><a href="tel:+918904072335">+91 89040 72335</a></li>
+              <li><a href="mailto:help@bhagavadkarma.org">help@bhagavadkarma.org</a></li>
+              <li>G 05, Aarya Orchid, 1st Cross, Phase 2, HSR 2nd Sector, Bangalore - 560 102</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="footer-newsletter-box">
+            <div class="section-title">
+              <h2 class="text-anime-style-2" data-cursor="-opaque" style="font-size:35px;">Join Our Spiritual Community &nbsp;and Stay Connected</h2>
+            </div>
+            <div class="hero-body wow fadeInUp" data-wow-delay="0.4s">
+              <div class="hero-btn">
+                <a href="member" class="btn-default" style="background-color:rgba(0,0,0,0.363);">Become a Member</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <div class="footer-copyright">
+            <div class="footer-copyright-text"><p>Copyright © 2026 All Rights Reserved</p></div>
+            <div class="footer-privacy-policy">
+              <a href="https://ascendingsoftware.com/">
+                <p style="color:white;">Developed and designed by Ascending Software</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<!-- Scroll Top -->
+<button id="scrollTopBtn" (click)="scrollTop()" title="Back to Top">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<!-- ══ CART DRAWER ══════════════════════════════════════════ -->
+<div class="cart-drawer-overlay"
+     [class.open]="cartDrawerOpen()"
+     (click)="closeCartDrawer()">
+</div>
+
+<div class="cart-drawer" [class.open]="cartDrawerOpen()">
+  <div class="cart-drawer-header">
+    <h3>Your Cart ({{ cartService.totalQty() }})</h3>
+    <button class="cart-close-btn" (click)="closeCartDrawer()">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+
+  <div class="cart-drawer-body">
+    @if (cartService.cart().length === 0) {
+      <p class="cart-empty-msg">Your cart is empty.</p>
+    }
+    @for (item of cartService.cart(); track item.id) {
+      <div class="cart-line">
+        <img [src]="item.image" [alt]="item.name">
+        <div class="cart-line-info">
+          <h5>{{ item.name }}</h5>
+          <div class="cart-qty-control">
+            <button type="button" class="qty-btn" (click)="decreaseCartQty(item)">−</button>
+            <span class="qty-value">{{ item.qty }}</span>
+            <button type="button" class="qty-btn" (click)="increaseCartQty(item)">+</button>
+          </div>
+        </div>
+        <span class="cart-line-price">₹{{ formatPrice(item.price * item.qty) }}</span>
+        <button class="cart-line-remove" (click)="cartService.remove(item.id)" title="Remove item">
+          <i class="fa-solid fa-trash-can"></i>
+        </button>
+      </div>
+    }
+  </div>
+
+  <div class="cart-drawer-footer">
+    <div class="cart-summary-row"><span>Subtotal</span><span>₹{{ formatPrice(cartService.totalAmt()) }}</span></div>
+    <div class="cart-summary-row"><span>Shipping</span><span>Free</span></div>
+    <div class="cart-summary-row"><span>GST (18%)</span><span>₹{{ formatPrice(drawerGst()) }}</span></div>
+    <div class="cart-summary-total"><span>Total</span><span>₹{{ formatPrice(drawerTotal()) }}</span></div>
+    <button class="cart-checkout-btn" (click)="openCheckout('cart')">
+      <i class="fa-solid fa-credit-card"></i> Proceed to Checkout
+    </button>
+    <a routerLink="#" class="cart-continue-btn" (click)="closeCartDrawer()">
+      ← Continue Shopping
+    </a>
+  </div>
+</div>
+
+<!-- ══ LOGIN POPUP ══════════════════════════════════════════ -->
+@if (loginOpen()) {
+  <div class="login-overlay open" (click)="closeLogin()">
+    <div class="login-modal" (click)="$event.stopPropagation()">
+      <button class="login-close" (click)="closeLogin()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <h3>Sign In</h3>
+      <p class="login-sub">Enter your mobile number to continue.</p>
+
+      <div class="login-field">
+        <label>Mobile Number <span class="req">*</span></label>
+        <input type="tel"
+               [ngModel]="loginPhone()"
+               (ngModelChange)="loginPhone.set($event); loginPhoneError.set('')"
+               placeholder="9876543210"
+               maxlength="10"
+               [class.input-error]="loginPhoneError()">
+        @if (loginPhoneError()) { <span class="co-error">{{ loginPhoneError() }}</span> }
+      </div>
+
+      @if (!loginShowOtp()) {
+        <button class="login-btn" (click)="loginSendOtp()">Send OTP</button>
+      }
+
+      @if (loginShowOtp()) {
+        <div class="login-field">
+          <label>Enter OTP <span class="req">*</span></label>
+          <input type="text"
+                 [ngModel]="loginOtpInput()"
+                 (ngModelChange)="loginOtpInput.set($event); loginOtpError.set('')"
+                 maxlength="6" placeholder="• • • • • •"
+                 [class.input-error]="loginOtpError()"
+                 style="letter-spacing:.2em;font-size:18px;font-weight:700;">
+          @if (loginOtpError()) { <span class="co-error">{{ loginOtpError() }}</span> }
+        </div>
+        <button class="login-btn" (click)="loginVerifyOtp()">
+          <i class="fa-solid fa-shield-check"></i> Verify OTP
+        </button>
+      }
+
+      <div class="login-footer">
+        Don't have an account?
+        <button class="login-link-btn" (click)="goToMember()">Register as Member</button>
+      </div>
+    </div>
+  </div>
+}
+
+<!-- ══ CHECKOUT MODAL ══════════════════════════════════════ -->
+@if (checkoutOpen()) {
+  <div class="checkout-modal-overlay open" (click)="closeCheckout()">
+    <div class="checkout-modal" (click)="$event.stopPropagation()">
+      <h3>Complete Your Order</h3>
+      <p class="sub">Fill in your details and proceed to pay securely via Razorpay.</p>
+
+      <!-- Order Summary -->
+      <div class="co-order-summary">
+        @for (item of summaryItems(); track item.name) {
+          <div class="co-order-row">
+            <span>{{ item.name }} × {{ item.qty }}</span>
+            <span>₹{{ formatPrice(item.price * item.qty) }}</span>
+          </div>
+        }
+        <hr class="co-order-divider">
+        <div class="co-order-row"><span>Subtotal</span><span>₹{{ formatPrice(subtotal()) }}</span></div>
+        <div class="co-order-row co-order-gst">
+          <span>GST (18%)</span>
+          <span style="color:#c0392b;font-weight:600;">₹{{ formatPrice(gstAmount()) }}</span>
+        </div>
+        <div class="co-order-row" style="font-size:12.5px;color:#888;">
+          <span>Shipping</span><span style="color:#4a6741;font-weight:600;">FREE</span>
+        </div>
+        <div class="co-order-total">
+          <span>Total Payable</span><span>₹{{ formatPrice(grandTotal()) }}</span>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════════
+           CASE 1: Logged-in member — show readonly fields
+           localStorage data auto-filled, no toggle shown
+      ══════════════════════════════════════════════════════ -->
+      @if (authService.isLoggedIn()) {
+        <!-- Member badge -->
+        <!-- <div class="member-verified-banner">
+          <i class="fa-solid fa-circle-check"></i>
+          Signed in as <strong>{{ authService.userName() }}</strong>
+        </div> -->
+
+        <div class="co-field">
+          <label>Name</label>
+          <input type="text" [value]="authService.userName()" class="co-readonly" readonly>
+        </div>
+        <div class="co-field">
+          <label>Email</label>
+          <input type="text" [value]="authService.userEmail()" class="co-readonly" readonly>
+        </div>
+        <div class="co-field">
+          <label>Phone</label>
+          <input type="text" [value]="authService.userPhone()" class="co-readonly" readonly>
+        </div>
+        <div class="co-field">
+          <label>Delivery Address <span class="req">*</span></label>
+          <input type="text"
+                 [ngModel]="memAddress()"
+                 (ngModelChange)="memAddress.set($event); memAddressError.set('')"
+                 placeholder="Street, City, PIN"
+                 [class.input-error]="memAddressError()">
+          @if (memAddressError()) { <span class="co-error">{{ memAddressError() }}</span> }
+        </div>
+      }
+
+      <!-- ══════════════════════════════════════════════════════
+           CASE 2: Not logged in but savedMember in localStorage
+           Auto-fill from localStorage, readonly, show member badge
+      ══════════════════════════════════════════════════════ -->
+      @else if (savedMember()) {
+     
+
+        <div class="co-field">
+          <label>Name</label>
+          <input type="text" [value]="savedMemberName()" class="co-readonly" readonly>
+        </div>
+        <div class="co-field">
+          <label>Email</label>
+          <input type="text" [value]="savedMemberEmail()" class="co-readonly" readonly>
+        </div>
+        <div class="co-field">
+          <label>Phone</label>
+          <input type="text" [value]="savedMemberPhone()" class="co-readonly" readonly>
+        </div>
+        <div class="co-field">
+          <label>Delivery Address <span class="req">*</span></label>
+          <input type="text"
+                 [ngModel]="memAddress()"
+                 (ngModelChange)="memAddress.set($event); memAddressError.set('')"
+                 placeholder="Street, City, PIN"
+                 [class.input-error]="memAddressError()">
+          @if (memAddressError()) { <span class="co-error">{{ memAddressError() }}</span> }
+        </div>
+      }
+
+      <!-- ══════════════════════════════════════════════════════
+           CASE 3: Guest — show toggle + form
+      ══════════════════════════════════════════════════════ -->
+      @else {
+        <!-- Member Toggle -->
+        <div class="member-toggle-row" (click)="toggleMemberMode()">
+          <input type="checkbox"
+                 [checked]="isMemberMode()"
+                 (click)="$event.stopPropagation(); toggleMemberMode()">
+          <label (click)="$event.preventDefault()">
+            Already a Member? <span>Sign in with your phone</span>
+          </label>
+        </div>
+
+        <!-- Guest fields -->
+        @if (!isMemberMode()) {
+          <div class="co-field-row">
+            <div class="co-field">
+              <label>First Name <span class="req">*</span></label>
+              <input type="text" [(ngModel)]="fname" placeholder="Ramesh"
+                     [class.input-error]="fnameError()" (input)="fnameError.set('')">
+              @if (fnameError()) { <span class="co-error">{{ fnameError() }}</span> }
+            </div>
+            <div class="co-field">
+              <label>Last Name</label>
+              <input type="text" [(ngModel)]="lname" placeholder="Kumar">
+            </div>
+          </div>
+          <div class="co-field">
+            <label>Email <span class="req">*</span></label>
+            <input type="email" [(ngModel)]="email" placeholder="ramesh@example.com"
+                   [class.input-error]="emailError()" (input)="emailError.set('')">
+            @if (emailError()) { <span class="co-error">{{ emailError() }}</span> }
+          </div>
+          <div class="co-field">
+            <label>Phone <span class="req">*</span></label>
+            <input type="tel" [(ngModel)]="phone" placeholder="+91 98765 43210"
+                   [class.input-error]="phoneError()" (input)="phoneError.set('')">
+            @if (phoneError()) { <span class="co-error">{{ phoneError() }}</span> }
+          </div>
+          <div class="co-field">
+            <label>Delivery Address <span class="req">*</span></label>
+            <input type="text" [(ngModel)]="address" placeholder="Street, City, PIN"
+                   [class.input-error]="addressError()" (input)="addressError.set('')">
+            @if (addressError()) { <span class="co-error">{{ addressError() }}</span> }
+          </div>
+        }
+
+        <!-- Member OTP flow (not logged in, toggle checked) -->
+        @if (isMemberMode()) {
+          <div class="co-field">
+            <label>Registered Phone <span class="req">*</span></label>
+            <div class="otp-row">
+              <input type="tel"
+                     [ngModel]="memPhone()"
+                     (ngModelChange)="memPhone.set($event); onMemPhoneChange()"
+                     placeholder="+91 98765 43210"
+                     [class.input-error]="memPhoneError()"
+                     [readonly]="otpSent() && !otpVerified()">
+              <button class="btn-send-otp"
+                      [disabled]="!memPhoneValid() || (otpSent() && !otpVerified())"
+                      (click)="sendOtp()">
+                {{ otpSent() && !otpVerified() ? 'Sent' : 'Send OTP' }}
+              </button>
+            </div>
+            @if (memPhoneError()) { <span class="co-error">{{ memPhoneError() }}</span> }
+          </div>
+
+          @if (otpSent() && !otpVerified()) {
+            <div class="co-field" style="margin-bottom:6px;">
+              <label>Enter OTP <span class="req">*</span></label>
+              <input type="text"
+                     [ngModel]="otpInput()"
+                     (ngModelChange)="otpInput.set($event); otpInputError.set('')"
+                     maxlength="6" placeholder="• • • • • •"
+                     [class.input-error]="otpInputError()"
+                     style="letter-spacing:.2em;font-size:18px;font-weight:700;">
+              @if (otpInputError()) { <span class="co-error">{{ otpInputError() }}</span> }
+            </div>
+            @if (showVerifyBtn()) {
+              <button class="btn-verify-otp" (click)="verifyOtp()">
+                <i class="fa-solid fa-shield-check"></i> Verify OTP
+              </button>
+            }
+            @if (showResend()) {
+              <div class="resend-row">
+                @if (countdownSec() > 0) {
+                  <span>Resend OTP in {{ countdownSec() }}s</span>
+                } @else {
+                  <button (click)="resendOtp()">Resend OTP</button>
+                }
+              </div>
+            }
+          }
+
+          @if (showVerifiedBadge()) {
+            <div class="verified-badge">
+              <i class="fa-solid fa-circle-check"></i> Phone verified! You're signed in as a member.
+            </div>
+            <div class="co-field" style="margin-top:14px;">
+              <label>Delivery Address <span class="req">*</span></label>
+              <input type="text"
+                     [ngModel]="memAddress()"
+                     (ngModelChange)="memAddress.set($event); memAddressError.set('')"
+                     placeholder="Street, City, PIN"
+                     [class.input-error]="memAddressError()">
+              @if (memAddressError()) { <span class="co-error">{{ memAddressError() }}</span> }
+            </div>
+          }
+        }
+      }
+
+      <button class="co-pay-btn"
+              [disabled]="!canPay()"
+              (click)="triggerRazorpay()">
+        <i class="fa-solid fa-lock"></i> Pay ₹{{ formatPrice(grandTotal()) }} via Razorpay
+      </button>
+      <button class="co-cancel" (click)="closeCheckout()">Cancel</button>
+    </div>
+  </div>
+}
+
+<!-- ══ SUCCESS ═════════════════════════════════════════════ -->
+@if (successVisible()) {
+  <div class="success-overlay show">
+    <div class="success-box">
+      <div class="success-check"><i class="fa-solid fa-check"></i></div>
+      <h3>Order Placed!</h3>
+      <p>Thank you for your purchase. We'll send a confirmation shortly.</p>
+      <p class="success-ref">
+        Order ID: <span>{{ orderId() }}</span>
+        <button class="copy-btn" (click)="copyOrderId()">
+          <i class="fa-solid fa-copy"></i>
+        </button>
+      </p>
+      <button class="success-close" (click)="closeSuccess()" routerLink="/store/skincare">
+        Continue Shopping
+      </button>
+    </div>
+  </div>
+}
+
+<!-- ══ OTP TOAST ═══════════════════════════════════════════ -->
+@if (otpToastVisible()) {
+  <div class="cart-toast show"
+       style="bottom:16px;background:white;color:black;align-items:center;">
+    <div class="toast-icon" style="background:#2e7d32;padding:10px;border-radius:78px;">
+      <i class="fa-solid fa-key" style="color:white;"></i>
+    </div>
+    <div>
+      <div style="font-size:11px;opacity:0.75;margin-bottom:2px;">Your OTP</div>
+      <div style="font-size:20px;letter-spacing:0.25em;font-weight:800;">{{ generatedOtp() }}</div>
+    </div>
+  </div>
+}
+
+<!-- ══ CART TOAST ══════════════════════════════════════════ -->
+@if (toastVisible()) {
+  <div class="cart-toast show" [style.background]="toastIsError() ? '#c0392b' : '#2e7d32'">
+    <div class="toast-icon"><i class="fa-solid fa-check"></i></div>
+    <span>{{ toastMessage() }}</span>
+  </div>
+}
+
+@if (toast1Visible()) {
+  <div class="cart-toast show" style="bottom:80px;">
+    <div class="toast-icon"><i class="fa-solid fa-copy"></i></div>
+    <span>Order ID copied!</span>
+  </div>
+}

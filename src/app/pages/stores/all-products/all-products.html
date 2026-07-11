@@ -1,0 +1,214 @@
+<!-- Hero -->
+<div class="page-header parallaxie store-hero">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-12">
+        <div class="page-header-box">
+          <h1 class="text-anime-style-2" data-cursor="-opaque">{{ pageTitle() }}</h1>
+          <nav class="wow fadeInUp">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+              <li class="breadcrumb-item active">{{ pageTitle() }}</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Products -->
+<section class="store-products">
+  <div class="container">
+
+    <div class="section-title">
+      <h3 class="wow fadeInUp">Our Products</h3>
+      <h2 class="text-anime-style-2" data-cursor="-opaque">
+        {{ pageTitle() }} <span>Products</span>
+      </h2>
+      <p class="wow fadeInUp" data-wow-delay="0.2s">
+        Explore premium herbal skincare, healing oils, meditation essentials,
+        and wellness collections curated for your lifestyle.
+      </p>
+    </div>
+
+    <div class="store-layout">
+
+      <!-- ─── SIDEBAR FILTERS ─────────────────────────────── -->
+      <aside class="store-sidebar">
+
+        <div class="filter-box">
+          <h4>💰 Price Range</h4>
+          <input
+            type="range"
+            min="0"
+            max="5000"
+            step="100"
+            [value]="selectedMaxPrice()"
+            (input)="onPriceChange($event)"
+          >
+          <div class="price-display">
+            <span>₹0</span>
+            <span>Max: <strong>₹{{ selectedMaxPrice() }}</strong></span>
+          </div>
+        </div>
+
+        <div class="filter-box">
+          <h4>📂 Category</h4>
+          <label class="check-label">
+            <input
+              type="checkbox"
+              [checked]="selectedCategories().includes('Skincare')"
+              (change)="onCategoryChange('Skincare', $event)"
+            >
+            <span class="check-marker"></span>
+            Skincare
+          </label>
+          <label class="check-label">
+            <input
+              type="checkbox"
+              [checked]="selectedCategories().includes('Wellness-Men')"
+              (change)="onCategoryChange('Wellness-Men', $event)"
+            >
+            <span class="check-marker"></span>
+            Men Wellness
+          </label>
+          <label class="check-label">
+            <input
+              type="checkbox"
+              [checked]="selectedCategories().includes('Wellness-Women')"
+              (change)="onCategoryChange('Wellness-Women', $event)"
+            >
+            <span class="check-marker"></span>
+            Women Wellness
+          </label>
+          <label class="check-label">
+            <input
+              type="checkbox"
+              [checked]="selectedCategories().includes('Sacred')"
+              (change)="onCategoryChange('Sacred', $event)"
+            >
+            <span class="check-marker"></span>
+            Sacred Healing
+          </label>
+        </div>
+
+        <div class="filter-box">
+          <h4>🔀 Sort By</h4>
+          <select class="filter-select" [value]="selectedSort()" (change)="onSortChange($event)">
+            <option value="default">Default</option>
+            <option value="lowToHigh">Price: Low → High</option>
+            <option value="highToLow">Price: High → Low</option>
+          </select>
+        </div>
+
+        <div class="filter-box action-box">
+          <button class="clear-btn" (click)="clearAllFilters()">✕ Clear All Filters</button>
+        </div>
+
+      </aside>
+
+      <!-- ─── PRODUCTS + PAGINATION ──────────────────────── -->
+      <div class="store-main">
+
+        <!-- Results bar -->
+        <div class="results-bar">
+          <span>
+            Showing <strong>{{ paginatedProducts().length }}</strong>
+            of <strong>{{ filteredProducts().length }}</strong> Products
+          </span>
+        </div>
+
+        <!-- Grid -->
+        <div class="row g-4">
+
+          @if (filteredProducts().length === 0) {
+            <div class="col-12 text-center py-5">
+              <p style="font-size:18px; color:#888;">No products found.</p>
+            </div>
+          }
+
+          @for (p of paginatedProducts(); track p.id) {
+            <div class="col-lg-4 col-md-6">
+              <div class="store-product-card">
+
+                <div class="store-product-image">
+                  <a (click)="viewDetails(p)" style="cursor:pointer;">
+                    <img [src]="p.image" [alt]="p.name" loading="lazy">
+                  </a>
+                  <span class="product-badge" [class]="p.badgeClass">{{ p.badge }}</span>
+                  <div class="quick-add-overlay" (click)="viewDetails(p)">
+                    <i class="fa-solid fa-eye"></i> View Details
+                  </div>
+                </div>
+
+                <div class="store-product-content">
+                  <span class="product-category">{{ p.category }}</span>
+                  <h3>{{ p.name }}</h3>
+                  <p>{{ p.desc }}</p>
+                    <div class="store-product-bottom">
+                    <div>
+                      <span class="product-new-price">₹{{ p.price | number:'1.0-0' }}</span>
+                      <span class="product-old-price">₹{{ p.oldPrice | number:'1.0-0' }}</span>
+                    </div>
+
+                    @if ((cartQty().get(p.id) ?? 0) > 0) {
+                      <div class="product-qty-control">
+                        <button class="qty-btn" (click)="decreaseQty(p.id)">−</button>
+                        <span class="qty-value">{{ cartQty().get(p.id) ?? 0 }}</span>
+                        <button class="qty-btn" (click)="increaseQty(p)">+</button>
+                      </div>
+                    } @else {
+                      <button class="add-cart-btn" (click)="addToCart(p)" title="Add to cart">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                      </button>
+                    }
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          }
+
+        </div>
+
+        <!-- Pagination -->
+        @if (totalPages() > 1) {
+          <div class="pagination-wrapper">
+            <button
+              class="page-btn" style="padding:12px;"
+              [disabled]="currentPage() === 1"
+              (click)="changePage(currentPage() - 1)">
+              Prev
+            </button>
+
+            @for (page of getPages(); track page) {
+              <button
+                class="page-btn"
+                [class.active]="currentPage() === page"
+                (click)="changePage(page)">
+                {{ page }}
+              </button>
+            }
+
+            <button
+              class="page-btn" style="padding:12px;"
+              [disabled]="currentPage() === totalPages()"
+              (click)="changePage(currentPage() + 1)">
+              Next
+            </button>
+          </div>
+        }
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Toast -->
+@if (toastVisible()) {
+  <div class="cart-toast show">
+    <i class="fa-solid fa-check"></i> "{{ toastMessage() }}" added!
+  </div>
+}

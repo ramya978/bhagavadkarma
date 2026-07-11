@@ -1,0 +1,453 @@
+<!-- Hero -->
+<div class="page-header parallaxie store-hero">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-12">
+        <div class="page-header-box">
+          <h1 class="text-anime-style-2" data-cursor="-opaque">
+            {{ product()?.name || 'Product Details' }}
+          </h1>
+          <nav class="wow fadeInUp">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+              <li class="breadcrumb-item"><a routerLink="/store/skincare">Store</a></li>
+              <li class="breadcrumb-item active">{{ product()?.name || 'Details' }}</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════
+     PRODUCT DETAILS
+══════════════════════════════ -->
+<section class="product-details-page">
+  <div class="container">
+    @if (product(); as p) {
+      <div class="row align-items-start">
+
+        <!-- IMAGE -->
+        <div class="col-lg-6 pd-image-col">
+          <div class="pd-gallery-wrap">
+            <div class="pd-main-wrap" #zoomWrap
+                 (mouseenter)="onMouseEnter()"
+                 (mouseleave)="onMouseLeave()"
+                 (mousemove)="onMouseMove($event)"
+                 (click)="openLightbox()">
+              <img #mainImg class="pd-main-img"
+                   [src]="productImages()[activeImageIndex()]"
+                   [alt]="p.name">
+              @if (showZoom()) {
+                <div class="pd-zoom-selector"
+                     [style.left.px]="selectorX()"
+                     [style.top.px]="selectorY()">
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+
+        <!-- INFO -->
+        <div class="col-lg-6">
+          <div class="pd-content">
+            <span class="pd-category">{{ p.category }}</span>
+            <h1 class="pd-title" data-cursor="-opaque">{{ p.name }}</h1>
+
+            <div class="pd-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <span>4.0 (128 reviews)</span>
+            </div>
+
+            <div class="pd-price-wrap">
+              <span class="pd-price">₹{{ cartService.formatPrice(p.price) }}</span>
+              <span class="pd-old-price">₹{{ cartService.formatPrice(p.oldPrice) }}</span>
+              <span class="pd-discount">{{ discount() }}% OFF</span>
+            </div>
+
+            <div class="pd-divider"></div>
+            <p class="pd-desc">{{ p.desc }}</p>
+
+            <div class="pd-features">
+              <div class="pd-feature"><i class="fa-solid fa-leaf"></i> 100% Natural</div>
+              <div class="pd-feature"><i class="fa-solid fa-flask"></i> No Chemicals</div>
+              <div class="pd-feature"><i class="fa-solid fa-certificate"></i> Certified Ayurvedic</div>
+              <div class="pd-feature"><i class="fa-solid fa-truck"></i> Free Delivery ₹999+</div>
+            </div>
+
+            <p class="pd-qty-label">Quantity</p>
+            <div class="pd-qty-wrap">
+              <button class="pd-qty-btn" (click)="changeQty(-1)" [disabled]="qty() <= 1">−</button>
+              <input type="number" [value]="qty()" min="1" readonly>
+              <button class="pd-qty-btn" (click)="changeQty(1)">+</button>
+            </div>
+
+            <div class="pd-actions">
+              @if (!isProductInCart()) {
+                <button class="pd-btn-cart" (click)="addToCart()">
+                  <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                </button>
+              }
+              <button class="pd-btn-buy" (click)="buyNow()">
+                <i class="fa-solid fa-bolt"></i> Buy Now
+              </button>
+            </div>
+
+            <div class="pd-trust">
+              <div class="pd-trust-item"><i class="fa-solid fa-shield-halved"></i> Secure Payment</div>
+              <div class="pd-trust-item"><i class="fa-solid fa-rotate-left"></i> Easy Returns</div>
+              <div class="pd-trust-item"><i class="fa-solid fa-headset"></i> 24/7 Support</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    } @else {
+      <div class="text-center py-5">
+        <p style="font-size:18px;color:#888;">
+          Product not found. <a routerLink="/store/skincare">Go back to Store</a>
+        </p>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- Zoom Panel -->
+<div class="pd-zoom-result" #zoomResult
+     [class.visible]="showZoom()"
+     [style.background-image]="'url(' + (productImages()[activeImageIndex()] || '') + ')'"
+     [style.background-size]="zoomBgSize()"
+     [style.background-position]="zoomBgPos()"
+     [style.background-repeat]="'no-repeat'"
+     [style.top.px]="zoomPanelTop()"
+     [style.left.px]="zoomPanelLeft()">
+</div>
+
+<!-- Lightbox -->
+@if (lightboxOpen()) {
+  <div class="pd-lightbox" (click)="closeLightbox()">
+    <button class="pd-lb-close" (click)="closeLightbox()">&#10005;</button>
+    <img [src]="productImages()[activeImageIndex()]" [alt]="product()?.name">
+  </div>
+}
+
+<!-- ══════════════════════════════════════════════════════
+     CHECKOUT MODAL
+     3 states:
+     A) isFullyLoggedIn()  → show bk_user details readonly + address
+     B) hasSavedMember()   → show bk_member_details readonly + address
+                             (NO checkbox shown)
+     C) neither            → guest form + optional member checkbox (OTP)
+══════════════════════════════════════════════════════════ -->
+@if (checkoutOpen()) {
+  <div class="checkout-modal-overlay open" (click)="closeCheckout()">
+    <div class="checkout-modal" (click)="$event.stopPropagation()">
+
+      <h3>Complete Your Order</h3>
+      <p class="sub">Fill in your details and proceed to pay securely via Razorpay.</p>
+
+      <!-- ORDER SUMMARY -->
+      <div class="co-order-summary">
+        @for (item of summaryItems(); track item.name) {
+          <div class="co-order-row">
+            <span>{{ item.name }} &times; {{ item.qty }}</span>
+            <span>₹{{ (item.price * item.qty).toLocaleString('en-IN') }}</span>
+          </div>
+        }
+        <hr class="co-order-divider">
+        <div class="co-order-row">
+          <span>Subtotal</span>
+          <span>₹{{ subtotal().toLocaleString('en-IN') }}</span>
+        </div>
+        <div class="co-order-row" style="font-size:12.5px;color:#888;">
+          <span>GST (18%)</span>
+          <span style="color:#c0392b;font-weight:600;">₹{{ gstAmount().toLocaleString('en-IN') }}</span>
+        </div>
+        <div class="co-order-row" style="font-size:12.5px;color:#888;">
+          <span>Shipping</span>
+          <span style="color:#4a6741;font-weight:600;">FREE</span>
+        </div>
+        <div class="co-order-total">
+          <span>Total Payable</span>
+          <span>₹{{ grandTotal().toLocaleString('en-IN') }}</span>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════
+           CASE A — Fully logged in (bk_user)
+      ══════════════════════════════════════ -->
+      @if (isFullyLoggedIn()) {
+     
+
+        <div class="co-field">
+          <label>Name</label>
+          <input type="text" [value]="authService.userName()" class="co-readonly" readonly>
+        </div>
+        <div class="co-field">
+          <label>Email</label>
+          <input type="text" [value]="authService.userEmail()" class="co-readonly" readonly>
+        </div>
+        <div class="co-field">
+          <label>Phone</label>
+          <input type="text" [value]="authService.userPhone()" class="co-readonly" readonly>
+        </div>
+        <div class="co-field" style="margin-top:6px;">
+          <label>Delivery Address <span class="req">*</span></label>
+          <input type="text"
+                 [ngModel]="memAddress()"
+                 (ngModelChange)="memAddress.set($event); memAddressError.set('')"
+                 name="memAddress"
+                 placeholder="Street, City, PIN"
+                 [class.input-error]="memAddressError()">
+          @if (memAddressError()) {
+            <span class="co-error">{{ memAddressError() }}</span>
+          }
+        </div>
+      }
+
+      <!-- ══════════════════════════════════
+           CASE B — Saved member (bk_member_details),
+                    NOT fully logged in
+           No checkbox shown. Readonly fields.
+      ══════════════════════════════════════ -->
+      @else if (hasSavedMember()) {
+        <div class="member-info-banner">
+          <i class="fa-solid fa-id-card"></i>
+          Welcome back, <strong>{{ savedMemberName() }}</strong>
+        </div>
+
+        <div class="co-field">
+          <label>Name</label>
+          <input type="text" [value]="savedMemberName()" class="co-readonly" readonly>
+        </div>
+        <div class="co-field">
+          <label>Email</label>
+          <input type="text" [value]="savedMemberEmail()" class="co-readonly" readonly>
+        </div>
+        <div class="co-field">
+          <label>Phone</label>
+          <input type="text" [value]="savedMemberPhone()" class="co-readonly" readonly>
+        </div>
+        <div class="co-field" style="margin-top:6px;">
+          <label>Delivery Address <span class="req">*</span></label>
+          <input type="text"
+                 [ngModel]="memAddress()"
+                 (ngModelChange)="memAddress.set($event); memAddressError.set('')"
+                 name="memAddress"
+                 placeholder="Street, City, PIN"
+                 [class.input-error]="memAddressError()">
+          @if (memAddressError()) {
+            <span class="co-error">{{ memAddressError() }}</span>
+          }
+        </div>
+      }
+
+      <!-- ══════════════════════════════════
+           CASE C — New user / Guest
+           Show checkbox to switch to member (OTP) mode
+      ══════════════════════════════════════ -->
+      @else {
+        <!-- Member toggle checkbox — only for guests -->
+        <div class="member-toggle-row" (click)="toggleMemberMode()">
+          <input type="checkbox"
+                 [checked]="isMemberMode()"
+                 (click)="$event.stopPropagation(); toggleMemberMode()">
+          <label (click)="$event.preventDefault()">
+            Already a Member? <span>Sign in with your phone</span>
+          </label>
+        </div>
+
+        <!-- GUEST FORM -->
+        @if (!isMemberMode()) {
+          <div>
+            <div class="co-field-row">
+              <div class="co-field">
+                <label>First Name <span class="req">*</span></label>
+                <input type="text" [(ngModel)]="fname" name="fname" placeholder="Ramesh"
+                       [class.input-error]="fnameError()" (input)="fnameError.set('')">
+                @if (fnameError()) { <span class="co-error">{{ fnameError() }}</span> }
+              </div>
+              <div class="co-field">
+                <label>Last Name</label>
+                <input type="text" [(ngModel)]="lname" name="lname" placeholder="Kumar">
+              </div>
+            </div>
+            <div class="co-field">
+              <label>Email Address <span class="req">*</span></label>
+              <input type="email" [(ngModel)]="email" name="email" placeholder="ramesh@example.com"
+                     [class.input-error]="emailError()" (input)="emailError.set('')">
+              @if (emailError()) { <span class="co-error">{{ emailError() }}</span> }
+            </div>
+            <div class="co-field">
+              <label>Phone Number <span class="req">*</span></label>
+              <input type="tel" [(ngModel)]="phone" name="phone" placeholder="+91 98765 43210"
+                     [class.input-error]="phoneError()" (input)="phoneError.set('')">
+              @if (phoneError()) { <span class="co-error">{{ phoneError() }}</span> }
+            </div>
+            <div class="co-field">
+              <label>Delivery Address <span class="req">*</span></label>
+              <input type="text" [(ngModel)]="address" name="address" placeholder="Street, City, PIN"
+                     [class.input-error]="addressError()" (input)="addressError.set('')">
+              @if (addressError()) { <span class="co-error">{{ addressError() }}</span> }
+            </div>
+          </div>
+        }
+
+        <!-- MEMBER OTP FORM (checkbox checked) -->
+        @if (isMemberMode()) {
+          <div>
+            <div class="co-field">
+              <label>Registered Phone Number <span class="req">*</span></label>
+              <div class="otp-row">
+                <input type="tel"
+                       [ngModel]="memPhone()"
+                       (ngModelChange)="memPhone.set($event); onMemPhoneChange()"
+                       name="memPhone"
+                       placeholder="+91 98765 43210"
+                       [class.input-error]="memPhoneError()"
+                       [readonly]="otpSent() && !otpVerified()">
+                <button class="btn-send-otp"
+                        [disabled]="!memPhoneValid() || (otpSent() && !otpVerified())"
+                        (click)="sendOtp()">
+                  {{ (otpSent() && !otpVerified()) ? 'OTP Sent' : 'Send OTP' }}
+                </button>
+              </div>
+              @if (memPhoneError()) { <span class="co-error">{{ memPhoneError() }}</span> }
+            </div>
+
+            <!-- OTP input section -->
+            @if (otpSent() && !otpVerified()) {
+              <div>
+                <div class="co-field" style="margin-bottom:6px;">
+                  <label>Enter OTP <span class="req">*</span></label>
+                  <input type="text"
+                         [ngModel]="otpInput()"
+                         (ngModelChange)="otpInput.set($event); otpInputError.set('')"
+                         name="otpInput"
+                         maxlength="6"
+                         placeholder="• • • • • •"
+                         [class.input-error]="otpInputError()"
+                         style="letter-spacing:.25em;text-align:center;font-size:20px;font-weight:700;">
+                  @if (otpInputError()) { <span class="co-error">{{ otpInputError() }}</span> }
+                </div>
+
+                @if (otpStatus()) {
+                  <div [class]="otpStatusClass()" style="margin-bottom:8px;">{{ otpStatus() }}</div>
+                }
+
+                @if (showVerifyBtn()) {
+                  <button class="btn-verify-otp" (click)="verifyOtp()">
+                    <i class="fa-solid fa-shield-check"></i> Verify OTP
+                  </button>
+                }
+
+                @if (showResend()) {
+                  <div class="resend-row">
+                    @if (countdownSec() > 0) {
+                      <span>Resend OTP in <strong>{{ countdownSec() }}s</strong></span>
+                    } @else {
+                      <button class="resend-btn" (click)="resendOtp()">
+                        <i class="fa-solid fa-rotate-right"></i> Resend OTP
+                      </button>
+                    }
+                  </div>
+                }
+              </div>
+            }
+
+            <!-- Status after OTP flow -->
+            @if (!otpSent() && otpStatus()) {
+              <div [class]="otpStatusClass()" style="margin-bottom:10px;">{{ otpStatus() }}</div>
+            }
+
+            <!-- Verified badge -->
+            @if (showVerifiedBadge()) {
+              <div class="verified-badge">
+                <i class="fa-solid fa-circle-check"></i>
+                Phone verified! You're signed in as a member.
+              </div>
+            }
+
+            <!-- Address — only after OTP verified -->
+            @if (otpVerified()) {
+              <div class="co-field" style="margin-top:14px;">
+                <label>Delivery Address <span class="req">*</span></label>
+                <input type="text"
+                       [ngModel]="memAddress()"
+                       (ngModelChange)="memAddress.set($event); memAddressError.set('')"
+                       name="memAddress"
+                       placeholder="Street, City, PIN"
+                       [class.input-error]="memAddressError()">
+                @if (memAddressError()) { <span class="co-error">{{ memAddressError() }}</span> }
+              </div>
+            }
+          </div>
+        }
+      }
+
+      <!-- PAY BUTTON -->
+      <button class="co-pay-btn"
+              [disabled]="!canPay()"
+              (click)="triggerRazorpay()">
+        <i class="fa-solid fa-lock"></i>
+        Pay ₹{{ grandTotal().toLocaleString('en-IN') }} via Razorpay
+      </button>
+      <button class="co-cancel" (click)="closeCheckout()">Cancel</button>
+
+    </div>
+  </div>
+}
+
+<!-- SUCCESS -->
+@if (successVisible()) {
+  <div class="success-overlay show">
+    <div class="success-box">
+      <div class="success-check"><i class="fa-solid fa-check"></i></div>
+      <h3>Order Placed!</h3>
+      <p>Thank you for your purchase.<br>We'll send a confirmation shortly.</p>
+      <p class="success-ref">
+        Order ID: <span>{{ orderId() }}</span>
+        <button class="copy-btn" (click)="copyOrderId()">
+          <i class="fa-solid fa-copy"></i>
+        </button>
+      </p>
+      <button class="success-close" routerLink="/store/skincare" (click)="closeSuccess()">
+        Continue Shopping
+      </button>
+    </div>
+  </div>
+}
+
+<!-- OTP TOAST (dev helper) -->
+@if (otppassword()) {
+  <div class="cart-toast show"
+       style="bottom:16px;background:white;color:black;align-items:center;">
+    <div class="toast-icon" style="background:#2e7d32;padding:10px;border-radius:50%;">
+      <i class="fa-solid fa-key" style="color:white;"></i>
+    </div>
+    <div>
+      <div style="font-size:11px;opacity:.7;margin-bottom:2px;">Your OTP</div>
+      <div style="font-size:20px;letter-spacing:.25em;font-weight:800;">{{ generatedOtp() }}</div>
+    </div>
+  </div>
+}
+
+<!-- CART TOAST -->
+@if (toastVisible()) {
+  <div class="cart-toast show" [style.background]="toastIsError() ? '#c0392b' : '#2e7d32'">
+    <div class="toast-icon">
+      <i [class]="toastIsError() ? 'fa-solid fa-circle-exclamation' : 'fa-solid fa-check'"></i>
+    </div>
+    <span>{{ toastMessage() }}</span>
+  </div>
+}
+
+@if (toast1Visible()) {
+  <div class="cart-toast show" style="bottom:80px;">
+    <div class="toast-icon"><i class="fa-solid fa-copy"></i></div>
+    <span>Order ID copied!</span>
+  </div>
+}

@@ -1,0 +1,8 @@
+.page-header{
+	position: relative;
+    background: url('https://img.magnific.com/premium-photo/abstract-blue-earth-globe-world-map-news-background-full-screen_1123766-276.jpg?semt=ais_hybrid&w=740&q=80');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+	padding: 250px 0 140px;
+}

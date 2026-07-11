@@ -1,0 +1,401 @@
+<!-- Page Header -->
+<div class="page-header parallaxie"
+     style="background-image:url('https://img.freepik.com/free-photo/donate-sign-charity-campaign_53876-127165.jpg');background-position:center;">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-12">
+        <div class="page-header-box">
+          <h1 class="text-anime-style-2" data-cursor="-opaque">Make a Donation</h1>
+          <nav class="wow fadeInUp">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a routerLink="/">home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Donate</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Main Content -->
+<div class="page-book-appointment">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="our-appointment-box" style="align-items:baseline; padding:32px;">
+
+          <!-- LEFT: Stepper Form -->
+          <div class="appointment-form">
+            <section class="donate-stepper-section">
+              <div class="container">
+
+                <!-- STEPPER HEADER -->
+                <!-- <div class="stepper-header">
+                  <div class="step-wrap">
+                    <div class="step-circle"
+                         [class.active]="currentStep() === 1"
+                         [class.done]="currentStep() > 1">
+                      @if (currentStep() > 1) {
+                        <i class="fa-solid fa-check" style="font-size:0.75rem;"></i>
+                      } @else { 1 }
+                    </div>
+                    <div class="step-label"
+                         [class.active]="currentStep() === 1"
+                         [class.done]="currentStep() > 1">Amount</div>
+                  </div>
+
+                  <div class="step-connector" [class.done]="currentStep() > 1"></div>
+
+                  <div class="step-wrap">
+                    <div class="step-circle"
+                         [class.active]="currentStep() === 2"
+                         [class.done]="currentStep() > 2">
+                      @if (currentStep() > 2) {
+                        <i class="fa-solid fa-check" style="font-size:0.75rem;"></i>
+                      } @else { 2 }
+                    </div>
+                    <div class="step-label"
+                         [class.active]="currentStep() === 2"
+                         [class.done]="currentStep() > 2">Details</div>
+                  </div>
+
+                  <div class="step-connector" [class.done]="currentStep() > 2"></div>
+
+                  <div class="step-wrap">
+                    <div class="step-circle" [class.active]="currentStep() === 3">3</div>
+                    <div class="step-label" [class.active]="currentStep() === 3">Confirm</div>
+                  </div>
+                </div> -->
+
+                <div class="stepper-card contact-form wow fadeInUp">
+
+                  <!-- ── STEP 1: AMOUNT ── -->
+                  @if (currentStep() === 1) {
+                    <div class="step-panel active">
+                      <h2 class="step-title">Choose an Amount</h2>
+                      <p class="step-sub">Every rupee makes a difference — select how you'd like to contribute.</p>
+
+                      <div class="amount-grid">
+                        @for (pill of amountPills; track pill.value) {
+                          <button class="don-pill"
+                                  [class.active]="selectedAmount() === pill.value && !isCustomActive()"
+                                  (click)="selectPill(pill.value)">
+                            ₹{{ pill.label }} 
+                          </button>
+                        }
+                      </div>
+
+                      <div class="mb-3">
+                        <input type="number" class="form-control" id="customAmt"
+                               [value]="customAmtDisplay()"
+                               placeholder="Or enter custom amount (min ₹100)" min="100"
+                               (input)="onCustom($event)"
+                               (focus)="clearErr('amt')">
+                        @if (errors()['amt']) {
+                          <div class="field-error show">
+                            <i class="fa-solid fa-circle-exclamation me-1"></i>Please select or enter a valid amount (minimum ₹100).
+                          </div>
+                        }
+                      </div>
+
+                      <div class="mb-3">
+                        <label class="form-label fw-semibold">Donation Purpose</label>
+                        <select class="form-select" [value]="purpose()" (change)="purpose.set($any($event.target).value)">
+                          <option value="General">General — Let us decide</option>
+                          <option value="Farmer Support">Farmer Support</option>
+                          <option value="Rural Healthcare">Rural Healthcare</option>
+                          <option value="Spiritual Programs">Spiritual Programs</option>
+                          <option value="Environment">Environmental Restoration</option>
+                        </select>
+                      </div>
+
+                      <div class="btn-row">
+                        <button class="btn-default"  (click)="processDonation()">Donate</button>
+                      </div>
+                    </div>
+                  }
+
+                  <!-- ── STEP 2: DONOR DETAILS ── -->
+                  @if (currentStep() === 2) {
+                    <div class="step-panel active">
+                      <h2 class="step-title">Personal Details</h2>
+                      <p class="step-sub">We need a few details to send you a receipt and 80G certificate.</p>
+
+                    
+                      <div class="row g-3 mb-2">
+                        <div class="col-md-6">
+                          <label class="form-label fw-semibold">
+                            First Name *
+                         
+                          </label>
+                          <input type="text" class="form-control"
+                                 [class.is-invalid]="errors()['first']"
+                                 [class.field-locked]="isLocked('first')"
+                                 [(ngModel)]="dFirst"
+                                 placeholder="Ramesh"
+                                 [readonly]="isLocked('first')"
+                                 (focus)="clearErr('first')">
+                          @if (errors()['first']) {
+                            <div class="field-error show">
+                              <i class="fa-solid fa-circle-exclamation me-1"></i>First name is required.
+                            </div>
+                          }
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label fw-semibold">
+                            Last Name
+                          
+                          </label>
+                          <input type="text" class="form-control"
+                                 [class.field-locked]="isLocked('last')"
+                                 [(ngModel)]="dLast"
+                                 placeholder="Kumar"
+                                 [readonly]="isLocked('last')">
+                        </div>
+                      </div>
+
+                      <div class="mb-2">
+                        <label class="form-label fw-semibold">
+                          Email Address *
+                        
+                        </label>
+                        <input type="email" class="form-control"
+                               [class.is-invalid]="errors()['email']"
+                               [class.field-locked]="isLocked('email')"
+                               [(ngModel)]="dEmail"
+                               placeholder="ramesh@example.com"
+                               [readonly]="isLocked('email')"
+                               (focus)="clearErr('email')">
+                        @if (errors()['email']) {
+                          <div class="field-error show">
+                            <i class="fa-solid fa-circle-exclamation me-1"></i>Please enter a valid email address.
+                          </div>
+                        }
+                      </div>
+
+                      <div class="mb-2">
+                        <label class="form-label fw-semibold">
+                          Phone Number *
+                        
+                        </label>
+                        <input type="tel" class="form-control"
+                               [class.is-invalid]="errors()['phone']"
+                               [class.field-locked]="isLocked('phone')"
+                               [(ngModel)]="dPhone"
+                               placeholder="+91 98765 43210"
+                               [readonly]="isLocked('phone')"
+                               (focus)="clearErr('phone')">
+                        @if (errors()['phone']) {
+                          <div class="field-error show">
+                            <i class="fa-solid fa-circle-exclamation me-1"></i>Please enter a valid 10-digit phone number.
+                          </div>
+                        }
+                      </div>
+
+                      <div class="mb-2">
+                        <label class="form-label fw-semibold">
+                          PAN Number
+                          <span class="fw-normal text-muted" style="text-transform:none;letter-spacing:0;">(optional — for 80G receipt)</span>
+                       
+                        </label>
+                        <input type="text" class="form-control"
+                               [class.field-locked]="isLocked('pan')"
+                               [(ngModel)]="dPan"
+                               placeholder="ABCDE1234F" maxlength="10"
+                               style="text-transform:uppercase;"
+                               [readonly]="isLocked('pan')">
+                        @if (isLocked('pan')) {
+                          <div class="form-text text-muted" style="font-size:0.85rem;">
+                            <i class="fa-solid fa-lock me-1"></i>PAN is saved on your member profile and cannot be edited here.
+                          </div>
+                        }
+                      </div>
+
+                      <div class="mb-3">
+                        <label class="form-label fw-semibold">
+                          Address
+                          <span class="fw-normal text-muted" style="text-transform:none;letter-spacing:0;">(optional)</span>
+                        </label>
+                        <input type="text" class="form-control" [(ngModel)]="dAddress" placeholder="City, State">
+                      </div>
+
+                      <hr class="f-divider">
+
+                      <div class="btn-row">
+                        <button class="btn-step-back" (click)="goStep(1)">
+                          <i class="fa-solid fa-arrow-left"></i> Back
+                        </button>
+                        <button class="btn-default" (click)="goStep(3)">Continue</button>
+                      </div>
+                    </div>
+                  }
+
+                  <!-- ── STEP 3: CONFIRM ── -->
+                  @if (currentStep() === 3) {
+                    <div class="step-panel active">
+                      <h2 class="step-title">Review &amp; Confirm</h2>
+                      <p class="step-sub">Please verify the details before completing your donation.</p>
+
+                      <div class="summary-box">
+                        <div class="summary-row">
+                          <span>Donor Name</span>
+                          <span>{{ dFirst }} {{ dLast }}</span>
+                        </div>
+                        <div class="summary-row">
+                          <span>Email</span>
+                          <span>{{ dEmail }}</span>
+                        </div>
+                        <div class="summary-row">
+                          <span>Phone</span>
+                          <span>{{ dPhone }}</span>
+                        </div>
+                        <div class="summary-row">
+                          <span>PAN</span>
+                          <span>{{ dPan || 'Not provided' }}</span>
+                        </div>
+                        <div class="summary-row">
+                          <span>Donation For</span>
+                          <span>{{ purpose() }}</span>
+                        </div>
+                        <div class="summary-total">
+                          <span class="lbl">Total Donation</span>
+                          <span class="val">₹{{ selectedAmount().toLocaleString('en-IN') }}</span>
+                        </div>
+                      </div>
+
+                      @if (payError()) {
+                        <div class="pay-error-banner show">
+                          <i class="fa-solid fa-circle-exclamation"></i>
+                          <span>{{ payError() }}</span>
+                        </div>
+                      }
+
+                      <p style="font-size:0.78rem;color:#9a8e78;margin-bottom:20px;">
+                        <i class="fa-solid fa-circle-info me-1" style="color:var(--accent-color);"></i>
+                        By clicking Donate Now, you agree to our terms. An 80G receipt will be sent to your email after successful payment.
+                      </p>
+
+                      <div class="btn-row">
+                        <button class="btn-step-back" (click)="goStep(2)">
+                          <i class="fa-solid fa-arrow-left"></i> Back
+                        </button>
+                        <button class="btn-default" [disabled]="donating()" (click)="processDonation()">
+                          @if (donating()) {
+                            <i class="fa-solid fa-spinner fa-spin me-1"></i> Processing...
+                          } @else {
+                            <i class="fa-solid fa-heart me-1"></i> Donate Now
+                          }
+                        </button>
+                      </div>
+                    </div>
+                  }
+
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- RIGHT: Impact Info -->
+          <div class="our-appointment-content">
+            <div class="section-title">
+              <h3 class="wow fadeInUp">Your Offering Matters</h3>
+              <h2 class="text-anime-style-2" data-cursor="-opaque">
+                Give with Purpose,<br><span>Transform Lives</span>
+              </h2>
+              <p class="wow fadeInUp" data-wow-delay="0.2s">
+                Every contribution supports our mission of spiritual education, rural healthcare,
+                farmer welfare, and environmental stewardship — rooted in the timeless wisdom of Bhagavad Karma.
+              </p>
+            </div>
+            <div class="appointment-content-body">
+              <div class="appointment-item wow fadeInUp p-1 mb-3" data-wow-delay="0.2s">
+                <div class="icon-box"><i class="fa-solid fa-seedling fa-2x" style="color:var(--accent-color);"></i></div>
+                <div class="appointment-item-content">
+                  <h3>Environmental Restoration</h3>
+                  <p>Planting trees, protecting water bodies, and healing the land we live on.</p>
+                </div>
+              </div>
+              <div class="appointment-item wow fadeInUp p-1 mb-3" data-wow-delay="0.3s">
+                <div class="icon-box"><i class="fa-solid fa-heart-pulse fa-2x" style="color:var(--accent-color);"></i></div>
+                <div class="appointment-item-content">
+                  <h3>Rural Healthcare</h3>
+                  <p>Free medical camps and holistic wellness programs for underserved communities.</p>
+                </div>
+              </div>
+              <div class="appointment-item wow fadeInUp p-1 mb-3" data-wow-delay="0.4s">
+                <div class="icon-box"><i class="fa-solid fa-wheat-awn fa-2x" style="color:var(--accent-color);"></i></div>
+                <div class="appointment-item-content">
+                  <h3>Farmer Support</h3>
+                  <p>Empowering farmers with sustainable agriculture training and direct aid.</p>
+                </div>
+              </div>
+              <div class="appointment-item wow fadeInUp p-1 mb-3" data-wow-delay="0.5s">
+                <div class="icon-box"><i class="fa-solid fa-hands-praying fa-2x" style="color:var(--accent-color);"></i></div>
+                <div class="appointment-item-content">
+                  <h3>Spiritual Education</h3>
+                  <p>Free gurukula classes, workshops, and access to ancient wisdom for all.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SUCCESS OVERLAY -->
+@if (successVisible()) {
+  <div class="success-overlay show">
+    <div class="success-box">
+      <div class="success-icon">
+        <i class="fa-solid fa-check"></i>
+      </div>
+      <h3>Donation Received!</h3>
+      <p>Thank you for your generous offering.<br>Your contribution will be used purposefully.</p>
+      <p>A receipt has been sent to your email.</p>
+      <p class="success-ref">
+        Payment ID:
+        <span>{{ paymentId() }}</span>
+        <button (click)="copyPaymentId()" class="copy-btn">
+          <i class="fa-solid fa-copy"></i>
+        </button>
+      </p>
+      <button class="btn-close-success" routerLink="/">Return to Home</button>
+    </div>
+  </div>
+}
+
+<!-- FAILURE OVERLAY -->
+@if (failVisible()) {
+  <div class="success-overlay show">
+    <div class="success-box fail-box">
+      <div class="fail-icon">
+        <i class="fa-solid fa-xmark"></i>
+      </div>
+      <h3>Payment Failed</h3>
+      <p>We were unable to process your donation.</p>
+      <div class="fail-desc">{{ payError() }}</div>
+      @if (failTxnId() || failTime()) {
+        <div class="fail-code">
+          @if (failTime()) {
+            <div style="margin-bottom:6px; color:#842029;">{{ failTime() }}</div>
+          }
+          @if (failTxnId()) {
+            <div>Transaction ID &nbsp;<span>{{ failTxnId() }}</span></div>
+          }
+        </div>
+      }
+      <button class="btn-close-success" (click)="closeFailure()">Try Again</button>
+    </div>
+  </div>
+}
+
+<!-- Toast -->
+@if (toastVisible()) {
+  <div class="cart-toast show">
+    <i class="fa-solid fa-copy"></i> {{ toastMsg() }}
+  </div>
+}
