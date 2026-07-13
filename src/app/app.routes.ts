@@ -20,6 +20,17 @@ import { AllProductsComponent } from './pages/stores/all-products/all-products';
 import { DonationComponent } from './pages/donation/donation';
 import { SitemapComponent } from './pages/sitemap/sitemap';
 import { AuraMechanismComponent } from './pages/services/aura-mechanism/aura-mechanism';
+import { MysticComponent } from './pages/services/mystic/mystic';
+import { LittleDiamondComponent } from './pages/services/little-diamond/little-diamond';
+import { InnerHushComponent } from './pages/services/inner-hush/inner-hush';
+import { YogicElementsComponent } from './pages/services/yogic-elements/yogic-elements';
+import { VedicFoodComponent } from './pages/services/vedic-food/vedic-food';
+import { MahaVashyaComponent } from './pages/services/maha-vashya/maha-vashya';
+import { MonkComponent } from './pages/act-for-good/monk/monk';
+import { VisionComponent } from './pages/act-for-good/vision/vision';
+import { SupportComponent } from './pages/act-for-good/support/support';
+import { PanchaAngaComponent } from './pages/act-for-good/pancha-anga/pancha-anga';
+import { WhoWeAreComponent } from './pages/about_us/who-we-are/who-we-are';
 
 export const routes: Routes = [
 
@@ -44,7 +55,24 @@ export const routes: Routes = [
     {path:'allproducts',component:AllProductsComponent},
     {path:'donation',component:DonationComponent},
     {path:'sitemap',component:SitemapComponent},
-    {path:'aura-mechanism',component:AuraMechanismComponent}
+    {path:'aura-mechanism',component:AuraMechanismComponent},
+    {path:'mystic-kriya',component:MysticComponent},
+    {path:'little-diamond',component:LittleDiamondComponent},
+    {path:'inner-hush',component:InnerHushComponent},
+    {path:'yogic-elements',component:YogicElementsComponent},
+    {path:'vedic-food',component:VedicFoodComponent},
+    {path:'maha-vashya',component:MahaVashyaComponent},
+    {path:'monk',component:MonkComponent},
+
+    {path:'vision',component:VisionComponent},
+    {path:'support',component:SupportComponent},
+    {path:'pacha-anga',component:PanchaAngaComponent},
+    {path:'who-we-are',component:WhoWeAreComponent}
+
+
+
+
+
 
 
 ];

@@ -1,0 +1,213 @@
+<!-- Page Header Start -->
+<div class="page-header parallaxie" style="background-image: url('assets/images/Gallery/SERVICES/yogic-elements/banner.png');background-position: center;">
+
+
+  <!-- Background Video End -->
+
+  <!-- Dark Overlay -->
+  <div style="position:absolute; top:0; left:0; width:100%; height:100%;
+              background:rgba(0,0,0,0.5); z-index:1;"></div>
+
+  <div class="container" style="position:relative; z-index:2;">
+    <div class="row align-items-center">
+      <div class="col-lg-12">
+        <div class="page-header-box">
+          <h1 class="text-anime-style-2" data-cursor="-opaque">Yogic Elements</h1>
+          <nav class="wow fadeInUp">
+            <ol class="breadcrumb">
+ <!-- <li class="breadcrumb-item"><a href="home">home</a></li> -->              <li class="breadcrumb-item active" aria-current="page">Services</li>
+              <li class="breadcrumb-item active" aria-current="page">Yogic Elements</li>
+
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Page Header End -->
+
+<style>
+  @media (max-width:450px) {
+    .ye-tabs .btn-default{
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+  .about-images1:hover .about-image-title h2 {
+    color: var(--accent-color);
+  }
+
+  .ye-article {
+    background: #fff;
+    padding: 70px 0 50px;
+  }
+
+  .ye-article h2.ye-h2 {
+    font-size: 1.55rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #2b1b12;
+    margin-bottom: 14px;
+  }
+
+  .ye-article p {
+    font-size: .97rem;
+    line-height: 1.78;
+    color: #4a4035;
+    margin-bottom: 14px;
+  }
+
+  .ye-article img {
+    width: 100%;
+    border-radius: 14px;
+    margin: 10px 0;
+        height: 500px;
+    object-fit: cover;
+  }
+
+  .ye-divider {
+    border: none;
+    border-top: 1.5px dashed rgb(0 0 0 / 38%);
+    margin: 28px 0;
+  }
+
+  /* ── TABS CONTAINER ── */
+  .ye-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    background: #fdf8ee;
+    border-radius: 14px;
+    padding: 4px;
+    border: 1px solid #e8e0d8;
+    justify-content: space-between;
+  }
+
+  /* btn-default style for tabs */
+  .btn-default.ye-tab-btn {
+    padding: 14px 24px;
+    font-size: .85rem;
+    font-weight: 600;
+    color: #4a4035;
+    background: transparent;
+    border: none;
+    border-radius: 11px;
+    cursor: pointer;
+    transition: all .3s ease;
+    letter-spacing: .01em;
+    flex: 1;
+    text-align: center;
+  }
+
+  .btn-default.ye-tab-btn:hover {
+    color: #b8860b;
+    background: rgba(184,134,11,.08);
+  }
+
+  .btn-default.active {
+    color: #fff;
+    background: #AEA17E;
+    /* box-shadow: 0 3px 10px rgba(184,134,11,.3); */
+  }
+
+  .btn-default.ye-tab-btn .ye-tab-icon {
+    margin-right: 5px;
+  }
+
+  .ye-tab-content {
+    display: none;
+    animation: fadeIn .4s ease;
+  }
+
+  .ye-tab-content.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 991px) {
+    .ye-tabs { justify-content: center; }
+    .btn-default.ye-tab-btn { padding: 10px 18px; font-size: .82rem; }
+    .ye-article h2.ye-h2 { font-size: 1.25rem; }
+  }
+
+  @media (max-width: 767px) {
+    .btn-default.ye-tab-btn { flex: 1; font-size: .75rem; padding: 10px 12px; }
+  }
+</style>
+
+
+<!-- ═══════════════ YOGIC ELEMENTS CONTENT ═══════════════ -->
+<div class="ye-article">
+  <div class="container">
+
+    <h2 class="ye-h2" style="text-align:center;">Yogic Elements</h2>
+    <p style="text-align:center; color:#7c6f63; margin-bottom:20px;">Precious offering from the Himalayan monks</p>
+
+    <!-- ── TABS ── -->
+    <div class="ye-tabs">
+      <button class="btn-default" [class.active]="activeTab === 'spiritual'" (click)="setTab('spiritual')">
+        <span class="ye-tab-icon"></span> Spiritual Classes
+      </button>
+      <button class="btn-default" [class.active]="activeTab === 'breathing'" (click)="setTab('breathing')">
+        <span class="ye-tab-icon"></span> Breathing Exercises
+      </button>
+      <button class="btn-default" [class.active]="activeTab === 'meditation'" (click)="setTab('meditation')">
+        <span class="ye-tab-icon"></span> Meditation Classes
+      </button>
+      <button class="btn-default" [class.active]="activeTab === 'relaxation'" (click)="setTab('relaxation')">
+        <span class="ye-tab-icon"></span> Total Body Relaxation
+      </button>
+      <button class="btn-default" [class.active]="activeTab === 'retreats'" (click)="setTab('retreats')">
+        <span class="ye-tab-icon"></span> Yoga Retreats
+      </button>
+    </div>
+
+    <!-- ── TAB: SPIRITUAL CLASSES ── -->
+    <div class="ye-tab-content" [class.active]="activeTab === 'spiritual'">
+      <div class="ye-tab-bg-spiritual"></div>
+      <p style="margin-top: 20px;">
+        If we describe the sweetness of sugar in words, how can we convey its taste to the listeners? Similarly, you should personally experience the greatness of the courses offered by Bhagavad Karma.
+      </p>
+    </div>
+
+    <!-- ── TAB: BREATHING EXERCISES ── -->
+    <div class="ye-tab-content" [class.active]="activeTab === 'breathing'">
+        <div class="ye-tab-bg-breathing"></div>
+      <p style="margin-top: 20px;">
+        If we describe the sweetness of sugar in words, how can we convey its taste to the listeners? Similarly, you should personally experience the greatness of the courses offered by Bhagavad Karma.
+      </p>
+    </div>
+
+    <!-- ── TAB: MEDITATION CLASSES ── -->
+    <div class="ye-tab-content" [class.active]="activeTab === 'meditation'">
+        <div class="ye-tab-bg-meditation"></div>
+      <p style="margin-top: 20px;">
+        If the sweetness of honey is described in words, how can listeners enjoy its taste? Similarly, if we describe the benefits of mystical meditation offered by Himalayan monks in words, how can we experience the greatness of it?
+      </p>
+    </div>
+
+    <!-- ── TAB: TOTAL BODY RELAXATION ── -->
+    <div class="ye-tab-content" [class.active]="activeTab === 'relaxation'">
+        <div class="ye-tab-bg-relaxation"></div>
+      <p style="margin-top: 20px;">
+        If we describe the sweetness of sugar in words, how can we convey its taste to the listeners? Similarly, you should personally experience the greatness of the courses offered by Bhagavad Karma.
+      </p>
+    </div>
+
+    <!-- ── TAB: YOGA RETREATS ── -->
+    <div class="ye-tab-content" [class.active]="activeTab === 'retreats'">
+       <div class="ye-tab-bg-retreats"></div>
+      <p style="margin-top: 20px;">
+        If we describe the sweetness of sugar in words, how can we convey its taste to the listeners? Similarly, you should personally experience the greatness of the courses offered by Bhagavad Karma.
+      </p>
+    </div>
+
+  </div>
+</div>
+<!-- ═══════════════ YOGIC ELEMENTS CONTENT END ═══════════════ -->

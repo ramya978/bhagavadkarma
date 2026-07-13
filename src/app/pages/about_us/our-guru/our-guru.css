@@ -1,0 +1,51 @@
+.achievements-section {
+  padding-top: 56px;
+  background: linear-gradient(135deg, var(--bg-color-1) 0%, #f8f6f0 100%);
+  position: relative;
+
+  .top-accent-line {
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+    opacity: 0.4;
+  }
+
+  .ring-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ring-wrap {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 30px;
+  }
+
+  .icon-badge {
+    position: absolute;
+    top: -6px;
+    left: 4px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 16px;
+    z-index: 2;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .ach-label {
+    margin-top: 0;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #555;
+  }
+}

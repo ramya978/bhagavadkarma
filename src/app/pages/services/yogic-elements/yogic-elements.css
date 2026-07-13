@@ -1,0 +1,44 @@
+  .ye-tab-bg-spiritual {
+    background-image: url('/assets/images/Gallery/SERVICES/yogic-elements/spiritual-classes.jpg');
+        width: 100%;
+    height: 699px;
+    background-position: center top;
+    background-repeat: no-repeat;
+    object-fit: cover;
+  }
+
+  .ye-tab-bg-breathing {
+    background-image: url('/assets/images/Gallery/SERVICES/yogic-elements/ye-1.jpg');
+        width: 100%;
+      height: 699px;
+    background-position: center top;
+    background-repeat: no-repeat;
+    object-fit: cover;
+  }
+
+  .ye-tab-bg-meditation {
+    background-image: url('/assets/images/Gallery/SERVICES/yogic-elements/meditation.jpg');
+        width: 100%;
+      height: 699px;
+    background-position: center top;
+    background-repeat: no-repeat;
+    object-fit: cover;
+  }
+
+  .ye-tab-bg-relaxation {
+    background-image: url('/assets/images/Gallery/SERVICES/yogic-elements/yoga-class-bengaluru.jpg');
+        width: 100%;
+    height: 699px;
+    background-position: center top;
+    background-repeat: no-repeat;
+    object-fit: cover;
+  }
+
+  .ye-tab-bg-retreats {
+    background-image: url('/assets/images/Gallery/SERVICES/yogic-elements/Yoga-Retreats.jpg');
+        width: 100%;
+    height: 699px;
+    background-position: center top;
+    background-repeat: no-repeat;
+    object-fit: cover;
+  }

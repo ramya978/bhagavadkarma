@@ -6,21 +6,29 @@
           <div class="collapse navbar-collapse main-menu" id="mainMenu">
           <a class="navbar-brand" href="home" style="display:flex;align-items:center;gap:10px;">
             <img src="assets/images/logo/BHAGAVADKARMA - Logo.svg" alt="Bhagavad Karma" class="logo" style="filter:brightness(0) invert(1);width:49px;">
-            <span style="color:#fff;font-weight:700;font-size:18px;white-space:nowrap;">BHAGAVADKARMA</span>
+            <span style="color:#fff;font-weight:700;font-size:18px;white-space:nowrap;">BHAGAVAD KARMA</span>
           </a>
             <div class="nav-menu-wrapper">
               
               <ul class="navbar-nav mr-auto" id="menu">
                 <li class="nav-item"><a class="nav-link" href="home">Home</a></li>
-                <li class="nav-item submenu"><a class="nav-link" href="our-guru">About Us</a>
+                <li class="nav-item submenu"><a class="nav-link" href="who-we-are">About Us</a>
                   <ul>
                     <li class="nav-item"><a class="nav-link" href="our-guru">Our Guru</a></li>
                     <li class="nav-item"><a class="nav-link" href="wisdom">Wisdom</a></li>
                   </ul>
                 </li>
-                <li class="nav-item submenu"><a class="nav-link" href="emotional-wellness">Services</a>
+                <li class="nav-item submenu"><a class="nav-link" href="aura-mechanism">Services</a>
                   <ul>
                  <li class="nav-item"><a class="nav-link" href="aura-mechanism">Aura Mechanism</a></li>
+                 <li class="nav-item"><a class="nav-link" href="mystic-kriya">Mystic Kriya</a></li>
+                 <li class="nav-item"><a class="nav-link" href="little-diamond">Little Diamonds</a></li>
+                 <li class="nav-item"><a class="nav-link" href="inner-hush">Inner Hush</a></li>
+                 <li class="nav-item"><a class="nav-link" href="yogic-elements">Yogic Elements</a></li>
+                 <li class="nav-item"><a class="nav-link" href="vedic-food">Vedic Food</a></li>
+                 <li class="nav-item"><a class="nav-link" href="maha-vashya">Maha Vashya Shakthi</a></li>
+
+
                     <li class="nav-item"><a class="nav-link" href="emotional-wellness">Emotional Wellness</a></li>
                     <li class="nav-item"><a class="nav-link" href="physical-wellness">Physical Wellness</a></li>
                     <li class="nav-item"><a class="nav-link" href="spiritual-wellness">Spiritual Wellness</a></li>
@@ -28,6 +36,26 @@
 
                   </ul>
                 </li>
+                <style>
+                  .submenu ul li a {
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    display: block;
+    line-height: 1.5;
+}
+                </style>
+
+                     <li class="nav-item submenu"><a class="nav-link" href="monk">Act for Good</a>
+                  <ul>
+                    <li class="nav-item"><a class="nav-link" href="monk">Feed A Monk</a></li>
+                    <li class="nav-item"><a class="nav-link" href="vision">The Vision in Action of Bhagavad Karma</a></li>
+                    <li class="nav-item"><a class="nav-link" href="support">Support for Dharma Samrakshana</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pacha-anga">Pancha-Anga Karma Vruksham</a></li>
+                  </ul>
+                </li>
+
+
                 <li class="nav-item submenu"><a class="nav-link" href="environment">Social Impacts</a>
                   <ul>
                     <li class="nav-item"><a class="nav-link" href="environment">Environment</a></li>
@@ -51,7 +79,7 @@
               </ul>
             </div>
             <div class="header-contact-btn">
-              <a href="tel:+918904072335" class="header-contact-now">
+              <a href="tel:+918904072335" class="header-contact-now  d-xxl-table d-none">
                 <i class="fa-solid fa-phone-volume"></i> +91 89040 72335
               </a>
 
@@ -102,7 +130,7 @@
                 }
               </div> -->
 
-              <a href="appointment" class="btn-default d-xl-table d-none">Appointment</a>
+              <a href="appointment" class="btn-default  d-xl-table d-none">Appointment</a>
             </div>
           </div>
 
@@ -129,7 +157,7 @@
           <div class="mobile-menu-header">
             <a class="mobile-brand" href="home" style="display:flex;align-items:center;gap:8px;">
               <img src="assets/images/logo/BHAGAVADKARMA - Logo.svg" alt="Bhagavad Karma" style="filter:brightness(0) invert(1);height:36px;">
-              <span style="color:#fff;font-weight:700;font-size:16px;">BHAGAVADKARMA</span>
+              <span style="color:#fff;font-weight:700;font-size:16px;">BHAGAVAD KARMA</span>
             </a>
             <button class="mobile-close-btn" (click)="toggleMenu()">
               <i class="fa-solid fa-xmark"></i>
@@ -147,12 +175,32 @@
             <li class="mobile-submenu">
               <a class="mobile-nav-link" (click)="toggleSubmenu($event)" style="cursor: pointer;">Services <i class="fa-solid fa-chevron-down"></i></a>
               <ul class="mobile-sub">
+                 <li ><a (click)="toggleMenu()"  href="aura-mechanism">Aura Mechanism</a></li>
+                 <li ><a (click)="toggleMenu()" href="mystic-kriya">Mystic Kriya</a></li>
+                 <li ><a  (click)="toggleMenu()" href="little-diamond">Little Diamonds</a></li>
+                 <li ><a (click)="toggleMenu()" href="inner-hush">Inner Hush</a></li>
+                 <li ><a (click)="toggleMenu()" href="yogic-elements">Yogic Elements</a></li>
+                 <li ><a (click)="toggleMenu()" href="vedic-food">Vedic Food</a></li>
+                 <li ><a (click)="toggleMenu()" href="maha-vashya">Maha Vashya Shakthi</a></li>
                 <li><a href="emotional-wellness" (click)="toggleMenu()">Emotional Wellness</a></li>
                 <li><a href="physical-wellness" (click)="toggleMenu()">Physical Wellness</a></li>
                 <li><a href="spiritual-wellness" (click)="toggleMenu()">Spiritual Wellness</a></li>
                 <li><a href="therapeutic-wellness" (click)="toggleMenu()">Therapeutic Wellness</a></li>
               </ul>
             </li>
+
+              <li class="mobile-submenu">
+              <a class="mobile-nav-link" (click)="toggleSubmenu($event)" style="cursor: pointer;">Act for Good <i class="fa-solid fa-chevron-down"></i></a>
+              <ul class="mobile-sub">
+                  <li ><a (click)="toggleMenu()"  href="monk">Feed A Monk</a></li>
+                    <li ><a (click)="toggleMenu()" href="vision">The Vision in Action of Bhagavad Karma</a></li>
+                    <li ><a (click)="toggleMenu()" href="support">Support for Dharma Samrakshana</a></li>
+                    <li ><a (click)="toggleMenu()"  href="pacha-anga">Pancha-Anga Karma Vruksham</a></li>
+              </ul>
+            </li>
+
+
+                
             <li class="mobile-submenu">
               <a class="mobile-nav-link" (click)="toggleSubmenu($event)" style="cursor: pointer;">Social Impacts <i class="fa-solid fa-chevron-down"></i></a>
               <ul class="mobile-sub">
@@ -198,8 +246,8 @@
           <div class="footer-header">
             <div class="footer-about">
             <div class="footer-logo" style="margin-right:23px;padding-right:17px;display:flex;align-items:center;gap:12px;">
-              <img src="assets/images/logo/BHAGAVADKARMA - Logo.svg" alt="Bhagavad Karma" class="logo" style="filter:brightness(0) invert(1); width: 64px;">
-              <span style="color:#fff;font-weight:700;font-size:20px;">BHAGAVADKARMA</span>
+              <img src="assets/images/logo/BHAGAVADKARMA - Logo.svg" alt="Bhagavad Karma" class="logo" style="filter:brightness(0) invert(1); width: 55px;">
+              <span style="color:#fff;font-weight:700;font-size:15px;">BHAGAVAD KARMA</span>
             </div>
               <div class="about-footer-content">
                 <p>Promoting spiritual awareness, education, and social welfare for the upliftment of mankind.</p>
@@ -233,7 +281,7 @@
             <ul>
               <li><a href="tel:+918904072335">+91 89040 72335</a></li>
               <li><a href="mailto:help@bhagavadkarma.org">help@bhagavadkarma.org</a></li>
-              <li>G 05, Aarya Orchid, 1st Cross, Phase 2, HSR 2nd Sector, Bangalore - 560 102</li>
+              <li>No 6 CKMR Gardens , New Airport Road , Bangalore 560077, Karnataka.</li>
             </ul>
           </div>
         </div>
