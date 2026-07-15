@@ -31,6 +31,7 @@ import { VisionComponent } from './pages/act-for-good/vision/vision';
 import { SupportComponent } from './pages/act-for-good/support/support';
 import { PanchaAngaComponent } from './pages/act-for-good/pancha-anga/pancha-anga';
 import { WhoWeAreComponent } from './pages/about_us/who-we-are/who-we-are';
+import { Support } from './pages/social_impacts/support/support';
 
 export const routes: Routes = [
 
@@ -57,7 +58,7 @@ export const routes: Routes = [
     {path:'sitemap',component:SitemapComponent},
     {path:'aura-mechanism',component:AuraMechanismComponent},
     {path:'mystic-kriya',component:MysticComponent},
-    {path:'little-diamond',component:LittleDiamondComponent},
+    {path:'little-diamonds',component:LittleDiamondComponent},
     {path:'inner-hush',component:InnerHushComponent},
     {path:'yogic-elements',component:YogicElementsComponent},
     {path:'vedic-food',component:VedicFoodComponent},
@@ -67,7 +68,9 @@ export const routes: Routes = [
     {path:'vision',component:VisionComponent},
     {path:'support',component:SupportComponent},
     {path:'pacha-anga',component:PanchaAngaComponent},
-    {path:'who-we-are',component:WhoWeAreComponent}
+    {path:'who-we-are',component:WhoWeAreComponent},
+    {path:'social-support',component:Support}
+
 
 
 
