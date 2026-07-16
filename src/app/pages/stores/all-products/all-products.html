@@ -5,7 +5,7 @@
       <div class="col-lg-12">
         <div class="page-header-box">
           <h1 class="text-anime-style-2" data-cursor="-opaque">{{ pageTitle() }}</h1>
-          <nav class="wow fadeInUp">
+          <nav class="wow fadeInUp" aria-label="Breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
               <li class="breadcrumb-item active">{{ pageTitle() }}</li>
@@ -134,7 +134,7 @@
 
                 <div class="store-product-image">
                   <a (click)="viewDetails(p)" style="cursor:pointer;">
-                    <img [src]="p.image" [alt]="p.name" loading="lazy">
+                    <img decoding="async" [src]="p.image" [alt]="p.name" loading="lazy">
                   </a>
                   <span class="product-badge" [class]="p.badgeClass">{{ p.badge }}</span>
                   <div class="quick-add-overlay" (click)="viewDetails(p)">

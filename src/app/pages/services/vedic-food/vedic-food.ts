@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-vedic-food',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './vedic-food.html',
   styleUrl: './vedic-food.css',
 })

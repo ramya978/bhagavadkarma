@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-aura-mechanism',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './aura-mechanism.html',
   styleUrl: './aura-mechanism.css',
 })

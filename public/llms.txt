@@ -1,0 +1,59 @@
+# Bhagavad Karma
+
+> Bhagavad Karma is a charitable organisation based in Bangalore, Karnataka,
+> India, promoting spiritual awareness, holistic wellness, education, safety
+> and social welfare to uplift mankind. It offers spiritual wellness services,
+> runs social-impact initiatives, and welcomes members, donors and volunteers.
+
+This file follows the emerging llms.txt convention: it points AI language
+models and answer engines to the site's key pages so they can retrieve,
+understand and cite Bhagavad Karma accurately.
+
+- Contact: help@bhagavadkarma.org · +91 89040 72335
+- Location: No 6 CKMR Gardens, New Airport Road, Bangalore 560077, Karnataka, India
+
+## About
+- [Who We Are](https://bhagavadkarma.org/who-we-are): Mission, values and story of the trust.
+- [Our Guru](https://bhagavadkarma.org/our-guru): The spiritual master guiding the organisation.
+- [Wisdom](https://bhagavadkarma.org/wisdom): Vedic wisdom and spiritual teachings.
+
+## Services (Spiritual Wellness)
+- [Emotional Wellness](https://bhagavadkarma.org/emotional-wellness): Counselling, mindfulness and stress relief.
+- [Physical Wellness](https://bhagavadkarma.org/physical-wellness): Holistic health consultations and guidance.
+- [Spiritual Wellness](https://bhagavadkarma.org/spiritual-wellness): Aura assessment and sacred rituals.
+- [Therapeutic Wellness](https://bhagavadkarma.org/therapeutic-wellness): Energy healing and crystal therapy.
+- [Aura Mechanism](https://bhagavadkarma.org/aura-mechanism): Energy-field assessment and chakra balancing.
+- [Mystic Kriya](https://bhagavadkarma.org/mystic-kriya): Kriya meditation practices.
+- [Little Diamonds](https://bhagavadkarma.org/little-diamonds): Child wellness and youth empowerment.
+- [Inner Hush](https://bhagavadkarma.org/inner-hush): Silence and meditation.
+- [Yogic Elements](https://bhagavadkarma.org/yogic-elements): Yoga practice and elemental balance.
+- [Vedic Food](https://bhagavadkarma.org/vedic-food): Sattvic nutrition and diet guidance.
+- [Maha Vashya Shakthi](https://bhagavadkarma.org/maha-vashya): Sacred spiritual practices.
+
+## Act for Good
+- [Feed a Monk](https://bhagavadkarma.org/feed-a-monk): Annadanam seva supporting monks.
+- [The Vision in Action](https://bhagavadkarma.org/the-vision-in-action-of-bhagavad-karma): Mission and long-term goals.
+- [Support for Dharma Samrakshana](https://bhagavadkarma.org/support-for-dharma-samrakshana): Preserving dharma and traditions.
+- [Pancha-Anga Karma Vruksham](https://bhagavadkarma.org/pancha-anga-karma-vruksham): The fivefold path of practice.
+
+## Social Impact
+- [Environment](https://bhagavadkarma.org/environment): Sustainability and conservation.
+- [Farmer Support](https://bhagavadkarma.org/farmer-support): Empowering farming communities.
+- [Livelihood](https://bhagavadkarma.org/livelihood): Skill development and economic growth.
+- [Rural Healthcare](https://bhagavadkarma.org/rural-healthcare): Health access for rural communities.
+- [Social Support](https://bhagavadkarma.org/social-support): Community welfare and relief.
+
+## Get Involved
+- [News](https://bhagavadkarma.org/news): Latest updates and announcements.
+- [Contact](https://bhagavadkarma.org/contact): Reach the team.
+- [Book an Appointment](https://bhagavadkarma.org/appointment): Schedule a wellness session.
+- [Become a Member](https://bhagavadkarma.org/member): Join the community.
+- [Donate](https://bhagavadkarma.org/donation): Support the mission.
+
+## Store
+- [All Products](https://bhagavadkarma.org/allproducts): Wellness and herbal products.
+- [Skincare](https://bhagavadkarma.org/store/skincare): Herbal and natural skincare.
+
+## Sitemaps
+- [XML Sitemap](https://bhagavadkarma.org/sitemap.xml)
+- [HTML Sitemap](https://bhagavadkarma.org/sitemap)

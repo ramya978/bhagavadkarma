@@ -1,8 +1,9 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-wisdom',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './wisdom.html',
   styleUrl: './wisdom.css',
 })

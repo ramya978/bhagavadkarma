@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import {
   Component,
   ElementRef,
@@ -21,7 +22,7 @@ interface Achievement {
 
 @Component({
   selector: 'app-our-guru',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './our-guru.html',
   styleUrl: './our-guru.css',
 })

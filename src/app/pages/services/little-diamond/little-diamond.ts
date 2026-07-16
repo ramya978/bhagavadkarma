@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-little-diamond',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './little-diamond.html',
   styleUrl: './little-diamond.css',
 })

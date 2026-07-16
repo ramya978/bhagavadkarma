@@ -1,0 +1,24 @@
+{
+  "name": "Bhagavad Karma",
+  "short_name": "Bhagavad Karma",
+  "description": "Charitable organisation promoting spiritual awareness, wellness, education and social welfare across India.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4a6741",
+  "lang": "en-IN",
+  "icons": [
+    {
+      "src": "/assets/images/logo/bhagavad-karma-logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}

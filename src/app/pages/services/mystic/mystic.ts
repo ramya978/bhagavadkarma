@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-mystic',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './mystic.html',
   styleUrl: './mystic.css',
 })

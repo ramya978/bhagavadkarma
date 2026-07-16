@@ -1,17 +1,44 @@
-# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+# ============================================================================
+#  .gitignore — Bhagavad Karma (Angular 21)
+#  See https://docs.github.com/get-started/getting-started-with-git/ignoring-files
+# ============================================================================
 
-# Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
+# ── Angular / Build Output ──────────────────────────────────────────────────
+/dist/
+/tmp/
+/out-tsc/
+/bazel-out/
+/.angular/
+/.angular/cache
 
-# Node
-/node_modules
-npm-debug.log
-yarn-error.log
+# ── Dependencies ────────────────────────────────────────────────────────────
+/node_modules/
 
-# IDEs and editors
+# ── Environment & Secrets ───────────────────────────────────────────────────
+.env
+.env.*
+*.local
+
+# ── Logs ────────────────────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ── Testing / Coverage ──────────────────────────────────────────────────────
+/coverage/
+/e2e/
+testem.log
+/typings
+__screenshots__/
+
+# ── Tooling output ──────────────────────────────────────────────────────────
+graphify-out/
+.sass-cache/
+/connect.lock
+/libpeerconnection.log
+
+# ── IDE / Editor ────────────────────────────────────────────────────────────
 .idea/
 .project
 .classpath
@@ -19,26 +46,30 @@ yarn-error.log
 *.launch
 .settings/
 *.sublime-workspace
+.history/*
 
-# Visual Studio Code
+# VS Code — ignore local settings but KEEP shared team config files
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
 !.vscode/mcp.json
-.history/*
 
-# Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
-/typings
-__screenshots__/
+# ── Visual Studio (.NET tooling, if present) ────────────────────────────────
+.vs/
+bin/
+obj/
+*.suo
+*.user
+*.cache
 
-# System files
+# ── OS Files ────────────────────────────────────────────────────────────────
 .DS_Store
 Thumbs.db
+
+# ============================================================================
+#  Do NOT ignore (kept intentionally, listed for reviewer clarity):
+#    angular.json, package.json, package-lock.json, .editorconfig,
+#    tsconfig*.json, src/assets/, public/ (robots.txt, sitemap.xml, llms.txt)
+# ============================================================================

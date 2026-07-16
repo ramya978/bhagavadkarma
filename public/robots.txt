@@ -1,0 +1,57 @@
+# ============================================================================
+#  robots.txt — Bhagavad Karma (https://bhagavadkarma.org)
+#  Controls crawler access. In 2026, AI answer engines are first-class
+#  crawlers: to be cited inside ChatGPT / Perplexity / Gemini / Copilot and
+#  Google AI Overviews, their bots MUST be allowed. They are explicitly
+#  welcomed below.
+# ============================================================================
+
+# ── Traditional search engines ──────────────────────────────────────────────
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# ── AI / answer-engine crawlers (allow so the brand can be cited) ───────────
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# ── Everyone else ───────────────────────────────────────────────────────────
+User-agent: *
+Allow: /
+
+# Nothing sensitive is exposed publicly; add Disallow rules here if an
+# /admin, /staging or /api surface is introduced later, e.g.:
+# Disallow: /admin/
+# Disallow: /staging/
+
+# ── Sitemap ─────────────────────────────────────────────────────────────────
+Sitemap: https://bhagavadkarma.org/sitemap.xml

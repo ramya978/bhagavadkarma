@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-vision',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './vision.html',
   styleUrl: './vision.css',
 })

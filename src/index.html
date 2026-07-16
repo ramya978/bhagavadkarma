@@ -1,1022 +1,260 @@
 <!doctype html>
 <html lang="en">
 <head>
-  
   <base href="/">
-  	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="keywords" content="">
-	<meta name="author" content="Awaiken">
-	<!-- Page Title -->
-    <title>Bhagavad Karma</title>
-    <meta name="description" content="Bhagavad Karma Charitable Organisation was established with a noble mission to promote spiritual awareness, education, safety, and social welfare, while supporting and uplifting the mankind.">
 
+  <!-- ══ Core document meta (HTML5) ═══════════════════════════════════════ -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Bhagavad Karma Charitable Organisation">
+  <meta name="theme-color" content="#4a6741">
 
-<!-- Open Graph (WhatsApp, Facebook, LinkedIn preview) -->
-<meta property="og:title" content="Bhagavad Karma">
-<meta property="og:description" content="Bhagavad Karma Charitable Organisation was established with a noble mission to promote spiritual awareness, education, safety, and social welfare, while supporting and uplifting the mankind.">
-<meta property="og:image" content="https://bhagavadkarma.org/assets/images/logo/BHAGAVADKARMA - Logo.svg">
-<meta property="og:url" content="https://bhagavadkarma.org/">
-<meta property="og:type" content="website">
+  <!--
+    NOTE: <meta http-equiv="X-UA-Compatible"> and <meta name="keywords"> were
+    removed. X-UA-Compatible only targeted legacy Internet Explorer (retired
+    2022) and the keywords tag has been ignored by all search engines for years.
+    Title / description / OG / Twitter tags below are DEFAULTS for crawlers and
+    no-JS clients; SeoService (src/app/services/seo.ts) overrides them per route.
+  -->
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Bhagavad Karma">
-<meta name="twitter:description" content="Bhagavad Karma Charitable Organisation was established with a noble mission to promote spiritual awareness, education, safety, and social welfare, while supporting and uplifting the mankind.">
-<meta name="twitter:image" content="https://bhagavadkarma.org/assets/images/logo/BHAGAVADKARMA - Logo.svg">
+  <!-- Page Title + Description (default: Home) -->
+  <title>Bhagavad Karma | Spiritual Wellness &amp; Charitable Trust</title>
+  <meta name="description" content="Bhagavad Karma is a charitable organisation promoting spiritual awareness, wellness, education and social welfare to uplift mankind across India.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
 
+  <!-- Canonical (default home; SeoService updates it per route) -->
+  <link rel="canonical" href="https://bhagavadkarma.org/">
 
+  <!-- ══ Search engine + platform ownership verification ══════════════════ -->
+  <!-- Replace the placeholder content with the real token from each console. -->
+  <meta name="google-site-verification" content="REPLACE_WITH_GOOGLE_SEARCH_CONSOLE_TOKEN">
+  <meta name="msvalidate.01" content="REPLACE_WITH_BING_WEBMASTER_TOKEN">
+  <!-- Pinterest domain claim (Pinterest Business → Claim → add the tag) -->
+  <meta name="p:domain_verify" content="REPLACE_WITH_PINTEREST_DOMAIN_VERIFY_CODE">
 
-	<!-- Favicon Icon -->
-	<link rel="shortcut icon" type="image/x-icon" sizes="180x180" href="assets/images/logo/BHAGAVADKARMA - Logo.svg">
-	<!-- Google Fonts Css-->
-	<link rel="preconnect" href="https://fonts.googleapis.com/">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Marcellus&amp;family=Sora:wght@100..800&amp;display=swap" rel="stylesheet">
-	<!-- Bootstrap Css -->
-	<link href="assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
-	<!-- SlickNav Css -->
-	<link href="assets/css/slicknav.min.css" rel="stylesheet">
-	<!-- Swiper Css -->
-	<link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-	<!-- Font Awesome Icon Css-->
-	<link href="assets/css/all.min.css" rel="stylesheet" media="screen">
-	<!-- Animated Css -->
-	<link href="assets/css/animate.css" rel="stylesheet">
-    <!-- Magnific Popup Core Css File -->
-	<link rel="stylesheet" href="assets/css/magnific-popup.css">
-	<!-- Mouse Cursor Css File -->
-	<link rel="stylesheet" href="/assets/css/mousecursor.css">
-	<!-- Main Custom Css -->
-	<link href="assets/css/custom.css" rel="stylesheet" media="screen">
+  <!-- ══ Open Graph (WhatsApp, Facebook, LinkedIn) ════════════════════════ -->
+  <meta property="og:title" content="Bhagavad Karma | Spiritual Wellness &amp; Charitable Trust">
+  <meta property="og:description" content="Bhagavad Karma is a charitable organisation promoting spiritual awareness, wellness, education and social welfare to uplift mankind across India.">
+  <meta property="og:image" content="https://bhagavadkarma.org/assets/images/logo/bhagavad-karma-logo.svg">
+  <meta property="og:url" content="https://bhagavadkarma.org/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Bhagavad Karma">
+  <meta property="og:locale" content="en_IN">
+
+  <!-- ══ Twitter / X Card ═════════════════════════════════════════════════ -->
+  <!-- twitter:site / twitter:creator use the brand's X handle — replace the
+       placeholder in SITE.twitterHandle (src/app/services/seo-data.ts) with the
+       real, verified handle. SeoService keeps these in sync per route. -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@bhagavadkarma">
+  <meta name="twitter:creator" content="@bhagavadkarma">
+  <meta name="twitter:title" content="Bhagavad Karma | Spiritual Wellness &amp; Charitable Trust">
+  <meta name="twitter:description" content="Bhagavad Karma is a charitable organisation promoting spiritual awareness, wellness, education and social welfare to uplift mankind across India.">
+  <meta name="twitter:image" content="https://bhagavadkarma.org/assets/images/logo/bhagavad-karma-logo.svg">
+
+  <!-- ══ rel="me" identity links (entity/authorship — reinforces sameAs) ═══
+       Uncomment and set the real, brand-owned profile URLs once verified. These
+       tell search/AI engines these accounts belong to this same entity. -->
+  <!--
+  <link rel="me" href="https://www.facebook.com/REPLACE_WITH_PAGE">
+  <link rel="me" href="https://www.instagram.com/REPLACE_WITH_HANDLE">
+  <link rel="me" href="https://www.youtube.com/@REPLACE_WITH_CHANNEL">
+  <link rel="me" href="https://www.linkedin.com/company/REPLACE_WITH_COMPANY">
+  <link rel="me" href="https://x.com/REPLACE_WITH_HANDLE">
+  -->
+
+  <!-- ══ Favicons / App icons ═════════════════════════════════════════════ -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo/bhagavad-karma-logo.svg">
+  <link rel="apple-touch-icon" href="assets/images/logo/bhagavad-karma-logo.svg">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- ══ Structured data — brand entity (Organization + WebSite) ══════════
+       Defines Bhagavad Karma as a recognised entity for Google's Knowledge
+       Graph and for AI engines (ChatGPT / Perplexity / Gemini) that cite
+       well-defined brands. Per-page WebPage + BreadcrumbList schema is added
+       dynamically by SeoService. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["Organization", "NGO"],
+        "@id": "https://bhagavadkarma.org/#organization",
+        "name": "Bhagavad Karma",
+        "legalName": "Bhagavad Karma Charitable Organisation",
+        "url": "https://bhagavadkarma.org/",
+        "logo": "https://bhagavadkarma.org/assets/images/logo/bhagavad-karma-logo.svg",
+        "description": "Bhagavad Karma is a charitable organisation promoting spiritual awareness, wellness, education and social welfare to uplift mankind across India.",
+        "email": "help@bhagavadkarma.org",
+        "telephone": "+91-89040-72335",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "No 6 CKMR Gardens, New Airport Road",
+          "addressLocality": "Bangalore",
+          "addressRegion": "Karnataka",
+          "postalCode": "560077",
+          "addressCountry": "IN"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+91-89040-72335",
+          "email": "help@bhagavadkarma.org",
+          "contactType": "customer support",
+          "areaServed": "IN",
+          "availableLanguage": ["en", "kn", "ta", "hi"]
+        },
+        "sameAs": []
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://bhagavadkarma.org/#website",
+        "url": "https://bhagavadkarma.org/",
+        "name": "Bhagavad Karma",
+        "inLanguage": "en-IN",
+        "publisher": { "@id": "https://bhagavadkarma.org/#organization" }
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://bhagavadkarma.org/#localbusiness",
+        "name": "Bhagavad Karma",
+        "image": "https://bhagavadkarma.org/assets/images/logo/bhagavad-karma-logo.svg",
+        "url": "https://bhagavadkarma.org/",
+        "telephone": "+91-89040-72335",
+        "email": "help@bhagavadkarma.org",
+        "priceRange": "₹₹",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "No 6 CKMR Gardens, New Airport Road",
+          "addressLocality": "Bangalore",
+          "addressRegion": "Karnataka",
+          "postalCode": "560077",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "13.0430",
+          "longitude": "77.6205"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+            "opens": "09:00",
+            "closes": "18:00"
+          }
+        ],
+        "parentOrganization": { "@id": "https://bhagavadkarma.org/#organization" }
+      }
+    ]
+  }
+  </script>
+
+  <!-- ══ Resource hints ═══════════════════════════════════════════════════
+       preconnect opens the connection early; dns-prefetch is the wider-support
+       fallback for browsers that cap preconnects. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <!-- Speed up the Razorpay checkout handshake (loaded on demand at checkout) -->
+  <link rel="preconnect" href="https://checkout.razorpay.com/">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com/">
+  <link rel="dns-prefetch" href="https://checkout.razorpay.com/">
+
+  <!-- Preload the brand logo (above the fold in the header on every route) so
+       it paints without waiting for Angular to bootstrap — helps LCP. -->
+  <link rel="preload" as="image" type="image/svg+xml"
+        href="assets/images/logo/bhagavad-karma-logo.svg" fetchpriority="high">
+
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&amp;family=Sora:wght@100..800&amp;display=swap" rel="stylesheet">
+
+  <!-- ══ Theme stylesheets ════════════════════════════════════════════════
+       The 8 theme CSS files (Bootstrap, SlickNav, Swiper, Font Awesome,
+       Animate, Magnific Popup, Mouse Cursor, Custom) were moved OUT of these
+       <link> tags and into angular.json → "styles" (in the SAME order, so the
+       cascade is identical). Angular now bundles + minifies them into the
+       hashed styles.css and injects it here at build time.
+
+       Why: as raw assets/css link tags the Angular builder could not resolve
+       them (base href="/" made it look under the drive root), producing
+       "Unable to locate stylesheet" warnings on every build. Bundling them
+       removes those warnings, consolidates 8 requests into 1 minified file,
+       and does not change the rendered UI. -->
 
 </head>
 <body>
   <app-root>
     <div class="preloader">
-		<div class="loading-container">
-			<div class="loading"></div>
-		 <a class="navbar-brand" id="loading-icon">
-            <img src="assets/images/logo/BHAGAVADKARMA - Logo.svg" alt="Bhagavad Karma" class="logo" style="filter:brightness(0) invert(1);    width: 49px;">
-          </a>
-		</div>
-	</div>
+      <div class="loading-container">
+        <div class="loading"></div>
+        <a class="navbar-brand" id="loading-icon">
+          <img src="assets/images/logo/bhagavad-karma-logo.svg" alt="Bhagavad Karma" class="logo" style="filter:brightness(0) invert(1);    width: 49px;">
+        </a>
+      </div>
+    </div>
   </app-root>
 
-
-   <!-- <script>
-
-function getCart()      { return JSON.parse(localStorage.getItem('bkCart') || '[]'); }
-function saveCart(cart) { localStorage.setItem('bkCart', JSON.stringify(cart)); }
-
-function removeFromCart(id) {
-  saveCart(getCart().filter(x => x.id !== id));
-  renderCartDrawer();
-}
-
-function updateQty(id, delta) {
-  const cart = getCart();
-  const idx  = cart.findIndex(x => x.id === id);
-  if (idx === -1) return;
-  cart[idx].qty = Math.max(1, cart[idx].qty + delta);
-  saveCart(cart);
-  renderCartDrawer();
-}
-
-function renderCartDrawer() {
-  const cart     = getCart();
-  const totalQty = cart.reduce((s, x) => s + x.qty, 0);
-  const totalAmt = cart.reduce((s, x) => s + x.price * x.qty, 0);
-
-  const countEl = document.getElementById('cart-count');
-  if (countEl) countEl.textContent = totalQty;
-
-  const drawerCount = document.getElementById('drawer-count');
-  const subtotalEl  = document.getElementById('drawer-subtotal');
-  const totalEl     = document.getElementById('drawer-total');
-  if (drawerCount) drawerCount.textContent = totalQty;
-  if (subtotalEl)  subtotalEl.textContent  = totalAmt.toLocaleString('en-IN');
-  if (totalEl)     totalEl.textContent     = totalAmt.toLocaleString('en-IN');
-
-  const itemsEl = document.getElementById('drawer-items');
-  if (!itemsEl) return;
-
-  if (cart.length === 0) {
-    itemsEl.innerHTML = '<p class="cart-empty-msg" style="color:#aaa;text-align:center;padding:40px 0;font-size:14px;">Your cart is empty.</p>';
-    return;
-  }
-
-  itemsEl.innerHTML = cart.map(item => `
-    <div class="cart-line" style="display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #f5f2ed;">
-      <img src="${item.image}" alt="${item.name}"
-           style="width:60px;height:60px;object-fit:contain;border-radius:10px;background:#f7f5f0;padding:4px;flex-shrink:0;">
-      <div class="cart-line-info">
-            <h5>${item.name}</h5>
-            <p>Qty: ${item.qty}</p>
-            <button class="cart-line-remove" onclick="removeFromCart(${item.id})">
-              <i class="fa-solid fa-xmark"></i> Remove
-            </button>
-          </div>
-          <span class="cart-line-price">₹${(item.price * item.qty).toLocaleString('en-IN')}</span>
-    </div>
-  `).join('');
-}
-function openCartDrawer() {
-  document.getElementById('cartDrawer').classList.add('open');
-  document.getElementById('cartOverlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeCartDrawer() {
-  document.getElementById('cartDrawer').classList.remove('open');
-  document.getElementById('cartOverlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-function goToCheckout() {
-  const cart = getCart();
-  if (cart.length === 0) {
-    const el = document.getElementById('drawer-items');
-    if (el) {
-      el.innerHTML = '<p style="color:#c0392b;text-align:center;padding:20px 0;font-size:13px;font-weight:600;"><i class="fa-solid fa-circle-exclamation"></i> Your cart is empty. Add items from the Store.</p>';
-    }
-    return;
-  }
-  localStorage.setItem('checkoutMode', 'cart');
-  window.location.href = 'product-details.html';
-}
-document.addEventListener('DOMContentLoaded', renderCartDrawer);
-    </script> -->
-
-  <!-- <script>
-    /* ════════════════════════════════════════
-       STATE
-    ════════════════════════════════════════ */
-    var currentProduct = null;
-    var checkoutMode   = 'single';
-    var GST_RATE       = 0.18;       // 18% GST — மாத்தணும்னா இங்க மட்டும் change பண்ணுங்க
-    var isMemberMode   = false;
-    var otpVerified    = false;
-    var generatedOtp   = '';
-    var countdownTimer = null;
-    var toastTimer     = null;
-    var toast1Timer    = null;
-
-    var FALLBACK_PRODUCT = {
-      id: 1, name: 'Herbal Face Cream', category: 'Skincare',
-      price: 799, oldPrice: 999,
-      desc: 'Natural herbal cream for glowing, hydrated & healthy skin. Enriched with turmeric and neem.',
-      image: 'images/Product/shopping1.webp'
-    };
-
-    /* ════════════════════════════════════════
-       LOAD PRODUCT
-    ════════════════════════════════════════ */
-function loadProduct() {
-  var stored = localStorage.getItem('selectedProduct');
-  currentProduct = stored ? JSON.parse(stored) : FALLBACK_PRODUCT;
-
-  var imgSrc = currentProduct.image || '';
-
-  // Images
-  var pdImage = document.getElementById('pd-image');
-  if (pdImage) pdImage.src = imgSrc;
-
-  var pdLbImg = document.getElementById('pdLbImg');
-  if (pdLbImg) pdLbImg.src = imgSrc;
-
-  // Text Fields
-  var pdName = document.getElementById('pd-name');
-  if (pdName) pdName.textContent = currentProduct.name || '';
-
-  var pdCategory = document.getElementById('pd-category');
-  if (pdCategory) pdCategory.textContent = currentProduct.category || 'Skincare';
-
-  var pdDesc = document.getElementById('pd-desc');
-  if (pdDesc) pdDesc.textContent = currentProduct.desc || '';
-
-  var heroTitle = document.getElementById('heroTitle');
-  if (heroTitle) heroTitle.textContent = currentProduct.name || 'Product Details';
-
-  var breadcrumbName = document.getElementById('breadcrumbName');
-  if (breadcrumbName) breadcrumbName.textContent = currentProduct.name || 'Details';
-
-  var price = parsePrice(currentProduct.price);
-  var oldPrice = parsePrice(currentProduct.oldPrice);
-
-  var discount = 0;
-  if (oldPrice > 0) {
-    discount = Math.round(((oldPrice - price) / oldPrice) * 100);
-  }
-
-  var pdPrice = document.getElementById('pd-price');
-  if (pdPrice) pdPrice.textContent = '₹' + price.toLocaleString('en-IN');
-
-  var pdOldPrice = document.getElementById('pd-old-price');
-  if (pdOldPrice) pdOldPrice.textContent = '₹' + oldPrice.toLocaleString('en-IN');
-
-  var pdDiscount = document.getElementById('pd-discount');
-  if (pdDiscount) pdDiscount.textContent = discount + '% OFF';
-}
-    function parsePrice(val) {
-      if (typeof val === 'number') return val;
-      return parseInt(String(val).replace(/[^0-9]/g, '')) || 0;
-    }
-
-    /* ════════════════════════════════════════
-       QUANTITY
-    ════════════════════════════════════════ */
-    function changeQty(delta) {
-      var el = document.getElementById('pd-qty');
-      el.value = Math.max(1, parseInt(el.value) + delta);
-    }
-
-    /* ════════════════════════════════════════
-       CART HELPERS
-    ════════════════════════════════════════ */
-    function getCart()   { return JSON.parse(localStorage.getItem('bkCart') || '[]'); }
-    function saveCart(c) { localStorage.setItem('bkCart', JSON.stringify(c)); }
-
-    function addThisToCart() {
-      if (!currentProduct) return;
-      var cart  = getCart();
-      var qty   = parseInt(document.getElementById('pd-qty').value);
-      var id    = currentProduct.id || currentProduct.name;
-      var price = parsePrice(currentProduct.price);
-      var idx   = cart.findIndex(function(x) { return (x.id || x.name) === id; });
-      if (idx > -1) { cart[idx].qty += qty; }
-      else { cart.push({ id: id, name: currentProduct.name, price: price, image: currentProduct.image, qty: qty }); }
-      saveCart(cart);
-      updateCartCount();
-      showToast(currentProduct.name, qty);
-    }
-
-    function removeFromCart(id) {
-      saveCart(getCart().filter(function(x) { return (x.id || x.name) !== id; }));
-      renderCartDrawer();
-    }
-
-    /* ════════════════════════════════════════
-       CART DRAWER
-    ════════════════════════════════════════ */
-    function renderCartDrawer() {
-      var cart     = getCart();
-      var total    = cart.reduce(function(s, x) { return s + x.price * x.qty; }, 0);
-      var totalQty = cart.reduce(function(s, x) { return s + x.qty; }, 0);
-      updateCartCount();
-      document.getElementById('drawer-count').textContent    = totalQty;
-      document.getElementById('drawer-subtotal').textContent = total.toLocaleString('en-IN');
-      document.getElementById('drawer-total').textContent    = total.toLocaleString('en-IN');
-      var el = document.getElementById('drawer-items');
-      if (cart.length === 0) { el.innerHTML = '<p class="cart-empty-msg">Your cart is empty.</p>'; return; }
-      el.innerHTML = cart.map(function(item) {
-        return '<div class="cart-line">' +
-          '<img src="' + (item.image || '') + '" alt="' + item.name + '">' +
-          '<div class="cart-line-info">' +
-            '<h5>' + item.name + '</h5>' +
-            '<p>Qty: ' + item.qty + '</p>' +
-            '<button class="cart-line-remove" onclick="removeFromCart(' + JSON.stringify(item.id || item.name) + ')">' +
-              '<i class="fa-solid fa-xmark"></i> Remove</button>' +
-          '</div>' +
-          '<span class="cart-line-price">₹' + (item.price * item.qty).toLocaleString('en-IN') + '</span>' +
-        '</div>';
-      }).join('');
-    }
-
-    function updateCartCount() {
-      var total = getCart().reduce(function(s, x) { return s + x.qty; }, 0);
-      document.getElementById('cart-count').textContent = total;
-    }
-
-    function openCartDrawer() {
-      renderCartDrawer();
-      document.getElementById('cartDrawer').classList.add('open');
-      document.getElementById('cartOverlay').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeCartDrawer() {
-      document.getElementById('cartDrawer').classList.remove('open');
-      document.getElementById('cartOverlay').classList.remove('open');
-      document.body.style.overflow = '';
-    }
-
-    /* ════════════════════════════════════════
-       CHECKOUT with GST
-    ════════════════════════════════════════ */
-    function openCheckout(mode) {
-      checkoutMode = mode;
-      closeCartDrawer();
-
-      var items = [], subtotal = 0;
-
-      if (mode === 'single' && currentProduct) {
-        var qty   = parseInt(document.getElementById('pd-qty').value);
-        var price = parsePrice(currentProduct.price);
-        subtotal  = price * qty;
-        items     = [{ name: currentProduct.name, qty: qty, price: price }];
-      } else {
-        var cart = getCart();
-        if (cart.length === 0) {
-          showToast('Your cart is empty!', 0);
-          return;
-        }
-        items    = cart;
-        subtotal = cart.reduce(function(s, x) { return s + x.price * x.qty; }, 0);
-      }
-
-      var gstAmount  = Math.round(subtotal * GST_RATE);
-      var grandTotal = subtotal + gstAmount;
-
-      var summaryHTML = items.map(function(i) {
-        return '<div class="co-order-row">' +
-          '<span>' + i.name + ' &times; ' + i.qty + '</span>' +
-          '<span>&#8377;' + (i.price * i.qty).toLocaleString('en-IN') + '</span></div>';
-      }).join('');
-
-      summaryHTML +=
-        '<div class="co-order-divider"></div>' +
-        '<div class="co-order-row co-order-sub"><span>Subtotal</span><span>&#8377;' + subtotal.toLocaleString('en-IN') + '</span></div>' +
-        '<div class="co-order-row co-order-gst"><span>GST (' + (GST_RATE * 100) + '%)</span><span>&#8377;' + gstAmount.toLocaleString('en-IN') + '</span></div>' +
-        '<div class="co-order-row co-order-shipping"><span>Shipping</span><span style="color:#4a6741;font-weight:600;">FREE</span></div>' +
-        '<div class="co-order-total"><span>Total Payable</span><span>&#8377;' + grandTotal.toLocaleString('en-IN') + '</span></div>';
-
-      document.getElementById('co-summary').innerHTML      = summaryHTML;
-      document.getElementById('co-pay-amount').textContent = grandTotal.toLocaleString('en-IN');
-      window._checkoutAmount = grandTotal;
-      window._checkoutItems  = items;
-
-      /* Reset modal state */
-      var cb = document.getElementById('memberCheckbox');
-      cb.checked = false;
-      isMemberMode = false;
-      document.getElementById('guestSection').style.display       = 'block';
-      document.getElementById('memberPhoneSection').style.display = 'none';
-      document.getElementById('coPayBtn').disabled = false;
-      resetOtpState();
-      clearGuestErrors();
-
-      document.getElementById('checkoutOverlay').classList.add('open');
-    }
-
-    function closeCheckout() {
-      document.getElementById('checkoutOverlay').classList.remove('open');
-      clearGuestErrors();
-      resetOtpState();
-    }
-
-    /* ════════════════════════════════════════
-       FORM VALIDATION — Guest only
-       (null-safe: checks element exists first)
-    ════════════════════════════════════════ */
-    function safeSetError(inputId, errId, msg) {
-      var inp = document.getElementById(inputId);
-      var err = document.getElementById(errId);
-      if (!inp || !err) return;
-      if (msg) { inp.classList.add('input-error'); err.textContent = msg; }
-      else     { inp.classList.remove('input-error'); err.textContent = ''; }
-    }
-
-    function clearGuestErrors() {
-      var guestInputs = ['co-fname', 'co-lname', 'co-email', 'co-phone', 'co-address'];
-      var guestErrors = ['err-fname', 'err-email', 'err-phone', 'err-address'];
-      guestInputs.forEach(function(id) {
-        var el = document.getElementById(id);
-        if (el) el.classList.remove('input-error');
-      });
-      guestErrors.forEach(function(id) {
-        var el = document.getElementById(id);
-        if (el) el.textContent = '';
-      });
-    }
-
-    /* Live clear on input */
-    ['co-fname','co-lname','co-email','co-phone','co-address'].forEach(function(id) {
-      var el = document.getElementById(id);
-      if (!el) return;
-      el.addEventListener('input', function() {
-        this.classList.remove('input-error');
-        var suffix = id.replace('co-', '');
-        var errEl  = document.getElementById('err-' + suffix);
-        if (errEl) errEl.textContent = '';
-      });
-    });
-
-    /* ════════════════════════════════════════
-       RAZORPAY
-    ════════════════════════════════════════ */
-    function triggerRazorpay() {
-      var amount = window._checkoutAmount || 0;
-      if (amount < 1) return;
-
-      var name, email, phone, address;
-
-      if (isMemberMode) {
-        /* Member mode — use verified phone */
-        if (!otpVerified) {
-          var s = document.getElementById('otpStatus');
-          s.className = 'otp-status error';
-          s.textContent = 'Please verify your phone number first.';
-          return;
-        }
-        phone   = document.getElementById('mem-phone').value.trim();
-        name    = 'Member';
-        email   = '';
-        address = '';
-      } else {
-        /* Guest mode — validate all fields */
-        var fname   = document.getElementById('co-fname').value.trim();
-        var lname   = document.getElementById('co-lname').value.trim();
-        email       = document.getElementById('co-email').value.trim();
-        phone       = document.getElementById('co-phone').value.trim();
-        address     = document.getElementById('co-address').value.trim();
-        name        = (fname + ' ' + lname).trim();
-
-        clearGuestErrors();
-
-        var hasError   = false;
-        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        var phoneRegex = /^[+]?[\d\s\-]{7,15}$/;
-
-        if (!fname)                      { safeSetError('co-fname',   'err-fname',   'First name is required');      hasError = true; }
-        if (!email)                      { safeSetError('co-email',   'err-email',   'Email address is required');   hasError = true; }
-        else if (!emailRegex.test(email)){ safeSetError('co-email',   'err-email',   'Enter a valid email');         hasError = true; }
-        if (!phone)                      { safeSetError('co-phone',   'err-phone',   'Phone number is required');    hasError = true; }
-        else if (!phoneRegex.test(phone)){ safeSetError('co-phone',   'err-phone',   'Enter a valid phone number');  hasError = true; }
-        if (!address)                    { safeSetError('co-address', 'err-address', 'Delivery address is required');hasError = true; }
-
-        if (hasError) {
-          var firstErr = document.querySelector('#guestSection .input-error');
-          if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          return;
-        }
-      }
-
-      var description = (window._checkoutItems || []).map(function(i) { return i.name + '×' + i.qty; }).join(', ');
-
-      var options = {
-        key:         'rzp_test_SzcqBk5gDrHDv5',
-        amount:      amount * 100,
-        currency:    'INR',
-        name:        'Swami Of The South',
-        description: description,
-        image:       'images/favicon.webp',
-        prefill:     { name: name, email: email, contact: phone.replace(/\s+/g, '') },
-        notes:       { address: address, items: description },
-        theme:       { color: '#4a6741' },
-        handler: function(response) {
-          closeCheckout();
-          clearGuestErrors();
-          if (checkoutMode === 'cart') { saveCart([]); renderCartDrawer(); }
-          document.getElementById('orderId').textContent = response.razorpay_payment_id;
-          document.getElementById('successOverlay').classList.add('show');
-        },
-        modal: { ondismiss: function() {} }
-      };
-
-      var rzp = new Razorpay(options);
-      rzp.on('payment.failed', function(r) {
-        safeSetError('co-phone', 'err-phone', 'Payment failed: ' + r.error.description);
-      });
-      rzp.open();
-    }
-
-    function closeSuccess() {
-      document.getElementById('successOverlay').classList.remove('show');
-      window.location.href = 'store/skincare';
-    }
-
-    /* ════════════════════════════════════════
-       COPY ORDER ID
-    ════════════════════════════════════════ */
-    function copyOrderId() {
-      var id = document.getElementById('orderId').textContent;
-      if (!id || id === '—') return;
-      navigator.clipboard.writeText(id).then(function() {
-        showToast1();
-      }).catch(function() {
-        /* Fallback for older browsers */
-        var ta = document.createElement('textarea');
-        ta.value = id; document.body.appendChild(ta);
-        ta.select(); document.execCommand('copy');
-        document.body.removeChild(ta);
-        showToast1();
-      });
-    }
-
-    /* ════════════════════════════════════════
-       TOAST
-    ════════════════════════════════════════ */
-    function showToast(name, qty) {
-      var t   = document.getElementById('cartToast');
-      var msg = document.getElementById('toastMsg');
-      if (qty === 0) {
-        t.style.background = '#c0392b';
-        msg.textContent    = name;
-      } else {
-        t.style.background = '#2e7d32';
-        msg.textContent    = '"' + name + '" (\u00d7' + qty + ') added!';
-      }
-      t.classList.add('show');
-      clearTimeout(toastTimer);
-      toastTimer = setTimeout(function() {
-        t.classList.remove('show');
-        t.style.background = '';
-      }, 3200);
-    }
-
-    function showToast1() {
-      var t = document.getElementById('cartToast1');
-      t.classList.add('show');
-      clearTimeout(toast1Timer);
-      toast1Timer = setTimeout(function() { t.classList.remove('show'); }, 2800);
-    }
-
-    /* ════════════════════════════════════════
-       MEMBER TOGGLE
-    ════════════════════════════════════════ */
-    function toggleMemberMode() {
-      var cb = document.getElementById('memberCheckbox');
-      isMemberMode = cb.checked;
-      document.getElementById('guestSection').style.display       = isMemberMode ? 'none' : 'block';
-      document.getElementById('memberPhoneSection').style.display = isMemberMode ? 'block' : 'none';
-      clearGuestErrors();
-      resetOtpState();
-      document.getElementById('coPayBtn').disabled = isMemberMode ? !otpVerified : false;
-    }
-
-    /* ════════════════════════════════════════
-       OTP FLOW
-    ════════════════════════════════════════ */
-    function onMemPhoneInput() {
-      var phone = document.getElementById('mem-phone').value.trim().replace(/\s+/g, '');
-      document.getElementById('btnSendOtp').disabled = !/^(\+91)?[6-9]\d{9}$/.test(phone);
-      document.getElementById('err-mem-phone').textContent = '';
-      document.getElementById('mem-phone').classList.remove('input-error');
-    }
-
-    function sendOtp() {
-      var phone = document.getElementById('mem-phone').value.trim();
-      if (!phone) return;
-      generatedOtp = String(Math.floor(100000 + Math.random() * 900000));
-showOtpToast(generatedOtp);
-
-      document.getElementById('otpSection').style.display    = 'block';
-      document.getElementById('btnVerifyOtp').style.display  = 'block';
-      document.getElementById('verifiedBadge').style.display = 'none';
-      document.getElementById('otpStatus').className         = 'otp-status info';
-      document.getElementById("otpMessage").innerHTML =
-    `OTP: ${generatedOtp}`;
-    //   document.getElementById('otpStatus').textContent       = 'OTP sent to ' + phone + '. (Check console for test OTP)';
-      document.getElementById('otp-input').value             = '';
-      document.getElementById('err-otp').textContent         = '';
-      document.getElementById('btnSendOtp').disabled         = true;
-      document.getElementById('mem-phone').readOnly          = true;
-      startCountdown(30);
-    }
-
-    function startCountdown(seconds) {
-      clearInterval(countdownTimer);
-      var remaining = seconds;
-      document.getElementById('resendRow').style.display      = 'flex';
-      document.getElementById('btnResend').disabled           = true;
-      document.getElementById('countdownDisplay').textContent = remaining;
-      countdownTimer = setInterval(function() {
-        remaining--;
-        document.getElementById('countdownDisplay').textContent = remaining;
-        if (remaining <= 0) {
-          clearInterval(countdownTimer);
-          document.getElementById('btnResend').disabled = false;
-        }
-      }, 1000);
-    }
-function showOtpToast(otp) {
-  var t = document.getElementById('otpToast');
-  document.getElementById('otpToastCode').textContent = otp;
-  t.classList.add('show');
-  clearTimeout(window._otpToastTimer);
-  window._otpToastTimer = setTimeout(function () {
-    t.classList.remove('show');
-  }, 6000);
-}
-
-  function resendOtp() {
-  generatedOtp = String(Math.floor(100000 + Math.random() * 900000));
-showOtpToast(generatedOtp);
-
-
-  document.getElementById("otpMessage").innerHTML = `OTP: ${generatedOtp}`;
-
-  document.getElementById('otp-input').value = '';
-  document.getElementById('otp-input').classList.remove('input-error');
-  document.getElementById('err-otp').textContent = '';
-  document.getElementById('otpStatus').className = 'otp-status info';
-  document.getElementById('otpStatus').textContent = 'New OTP sent to your phone.';
-  document.getElementById('otpSection').style.display   = 'block';
-  document.getElementById('btnVerifyOtp').style.display = 'block';
-  document.getElementById('verifiedBadge').style.display = 'none';
-
-  otpVerified = false;
-  document.getElementById('coPayBtn').disabled = true;
-  startCountdown(30);
-}
-    function verifyOtp() {
-      var entered = document.getElementById('otp-input').value.trim();
-      var errEl   = document.getElementById('err-otp');
-      var status  = document.getElementById('otpStatus');
-      if (!entered) {
-        errEl.textContent = 'Please enter the OTP.';
-        document.getElementById('otp-input').classList.add('input-error');
-        return;
-      }
-      if (entered !== generatedOtp) {
-        errEl.textContent  = 'Incorrect OTP. Please try again.';
-        document.getElementById('otp-input').classList.add('input-error');
-        status.className   = 'otp-status error';
-        status.textContent = 'Verification failed.';
-        return;
-      }
-      otpVerified = true;
-      clearInterval(countdownTimer);
-      errEl.textContent = '';
-      document.getElementById('otp-input').classList.remove('input-error');
-      status.className   = 'otp-status success';
-      status.textContent = '✓ Phone verified successfully!';
-      document.getElementById('btnVerifyOtp').style.display  = 'none';
-      document.getElementById('resendRow').style.display     = 'none';
-      document.getElementById('otpSection').style.display    = 'none';
-      document.getElementById('verifiedBadge').style.display = 'flex';
-      document.getElementById('coPayBtn').disabled           = false;
-    }
-
-    function resetOtpState() {
-      otpVerified  = false;
-      generatedOtp = '';
-      clearInterval(countdownTimer);
-      var safe = function(id, fn) { var el = document.getElementById(id); if (el) fn(el); };
-      safe('otpSection',    function(el) { el.style.display = 'none'; });
-      safe('verifiedBadge', function(el) { el.style.display = 'none'; });
-      safe('otp-input',     function(el) { el.value = ''; el.classList.remove('input-error'); });
-      safe('btnVerifyOtp',  function(el) { el.style.display = 'none'; });
-      safe('btnSendOtp',    function(el) { el.disabled = true; });
-      safe('mem-phone',     function(el) { el.value = ''; el.readOnly = false; });
-      safe('resendRow',     function(el) { el.style.display = 'none'; });
-      safe('otpStatus',     function(el) { el.textContent = ''; });
-      safe('err-mem-phone', function(el) { el.textContent = ''; });
-      safe('err-otp',       function(el) { el.textContent = ''; });
-    }
-
-    /* ════════════════════════════════════════
-       INIT
-    ════════════════════════════════════════ */
- document.addEventListener('DOMContentLoaded', function () {
-  loadProduct();
-  updateCartCount();
-});
-
-    if (localStorage.getItem('checkoutMode') === 'cart') {
-      localStorage.removeItem('checkoutMode');
-      openCheckout('cart');
-    }
-
-    /* ════════════════════════════════════════
-       AMAZON-STYLE ZOOM
-    ════════════════════════════════════════ */
-    (function () {
-      var wrap       = document.getElementById('zoomWrap');
-      var mainImg    = document.getElementById('pd-image');
-      var selector   = document.getElementById('pdSelector');
-      var zoomResult = document.getElementById('pdZoomResult');
-      var lb         = document.getElementById('pdLightbox');
-      var lbClose    = document.getElementById('pdLbClose');
-      var SEL_W = 120, SEL_H = 120, ZOOM = 3;
-
-
-       if (!wrap || !mainImg || !selector || !zoomResult) {
-    return;
-  }
-  
-      function setResultSrc(src) { if (src) zoomResult.style.backgroundImage = 'url("' + src + '")'; }
-      if (mainImg.src) setResultSrc(mainImg.src);
-      new MutationObserver(function() { if (mainImg.src) setResultSrc(mainImg.src); })
-        .observe(mainImg, { attributes: true, attributeFilter: ['src'] });
-
-      function moveZoom(clientX, clientY) {
-        var rc = wrap.getBoundingClientRect();
-        var sx = Math.max(0, Math.min(rc.width  - SEL_W, clientX - rc.left - SEL_W / 2));
-        var sy = Math.max(0, Math.min(rc.height - SEL_H, clientY - rc.top  - SEL_H / 2));
-        selector.style.left = sx + 'px'; selector.style.top = sy + 'px';
-        var bgW = rc.width * ZOOM, bgH = rc.height * ZOOM;
-        zoomResult.style.backgroundSize     = bgW + 'px ' + bgH + 'px';
-        zoomResult.style.backgroundPosition = '-' + (sx * ZOOM) + 'px -' + (sy * ZOOM) + 'px';
-      }
-      function showZoom() { selector.style.display='block'; zoomResult.style.display='block'; }
-      function hideZoom() { selector.style.display='none';  zoomResult.style.display='none'; }
-
-      wrap.addEventListener('mouseenter', showZoom);
-      wrap.addEventListener('mouseleave', hideZoom);
-      wrap.addEventListener('mousemove', function(e) { moveZoom(e.clientX, e.clientY); });
-      wrap.addEventListener('touchstart', showZoom, { passive: true });
-      wrap.addEventListener('touchend', hideZoom);
-      wrap.addEventListener('touchmove', function(e) {
-        e.preventDefault(); moveZoom(e.touches[0].clientX, e.touches[0].clientY);
-      }, { passive: false });
-
-      wrap.addEventListener('click', function() { lb.classList.add('active'); });
-      lbClose.addEventListener('click', function() { lb.classList.remove('active'); });
-      lb.addEventListener('click', function(e) { if (e.target === lb) lb.classList.remove('active'); });
-      document.addEventListener('keydown', function(e) { if (e.key === 'Escape') lb.classList.remove('active'); });
-    })();
-  </script> -->
-
-      <!-- <script>
-
-
-function showContactToast() {
-  var toast = document.getElementById('contactToast');
-  var bar   = document.getElementById('contactToastBar');
-  if (!toast) return;
-
-  // Show toast
-  toast.style.transform = 'translateY(0)';
-  toast.style.opacity   = '1';
-  toast.style.pointerEvents = 'all';
-
-  // Animate timer bar — 4 seconds
-  bar.style.transition = 'none';
-  bar.style.width = '100%';
-  setTimeout(function() {
-    bar.style.transition = 'width 4s linear';
-    bar.style.width = '0%';
-  }, 30);
-
-  // Hide after 4 seconds
-  setTimeout(function() {
-    toast.style.transform = 'translateY(100px)';
-    toast.style.opacity   = '0';
-    toast.style.pointerEvents = 'none';
-  }, 4000);
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  renderCartDrawer();
-
-  var form = document.getElementById('contactForm');
-  if (!form) return;
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    // Basic validation check
-    var fname   = document.getElementById('fname').value.trim();
-    var lname   = document.getElementById('lname').value.trim();
-    var email   = document.getElementById('email').value.trim();
-    var phone   = document.getElementById('phone').value.trim();
-
-    if (!fname || !email || !phone) return; // HTML5 required handles this
-
-    // Show toast
-    showContactToast();
-
-    // Clear form
-    form.reset();
-  });
-});
-
-
-
-function showAppointmentToast() {
-  var toast = document.getElementById('appointmentToast');
-  var bar   = document.getElementById('appointmentToastBar');
-  if (!toast) return;
-
-  // Show toast
-  toast.style.transform = 'translateY(0)';
-  toast.style.opacity   = '1';
-  toast.style.pointerEvents = 'all';
-
-  // Animate timer bar — 4 seconds
-  bar.style.transition = 'none';
-  bar.style.width = '100%';
-  setTimeout(function() {
-    bar.style.transition = 'width 4s linear';
-    bar.style.width = '0%';
-  }, 30);
-
-  // Hide after 4 seconds
-  setTimeout(function() {
-    toast.style.transform = 'translateY(100px)';
-    toast.style.opacity   = '0';
-    toast.style.pointerEvents = 'none';
-  }, 4000);
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  renderCartDrawer();
-
-  var form = document.getElementById('appointmentForm');
-  if (!form) return;
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    var fname = document.getElementById('fname').value.trim();
-    var email = document.getElementById('email').value.trim();
-    var phone = document.getElementById('phone').value.trim();
-    var date  = document.getElementById('date').value;
-    var time  = document.getElementById('time').value;
-
-    if (!fname || !email || !phone || !date || !time) return;
-
-    showAppointmentToast();
-    form.reset();
-    var now     = new Date();
-    var pad     = function(n) { return n < 10 ? '0' + n : n; };
-    var today   = now.getFullYear() + '-' + pad(now.getMonth()+1) + '-' + pad(now.getDate());
-    document.getElementById('date').min   = today;
-    document.getElementById('date').value = today;
-    document.getElementById('time').min   = '';
-  });
-});
-
-
-
-          function showMemberToast() {
-  var toast = document.getElementById('memberToast');
-  var bar   = document.getElementById('memberToastBar');
-  if (!toast) return;
-
-  toast.style.transform     = 'translateY(0)';
-  toast.style.opacity       = '1';
-  toast.style.pointerEvents = 'all';
-
-  bar.style.transition = 'none';
-  bar.style.width      = '100%';
-  setTimeout(function() {
-    bar.style.transition = 'width 4s linear';
-    bar.style.width      = '0%';
-  }, 30);
-
-  setTimeout(function() {
-    toast.style.transform     = 'translateY(100px)';
-    toast.style.opacity       = '0';
-    toast.style.pointerEvents = 'none';
-  }, 4000);
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  renderCartDrawer();
-
-  var form = document.getElementById('appointmentForm');
-  if (!form) return;
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    var fname = document.getElementById('fname').value.trim();
-    var email = document.getElementById('email').value.trim();
-    var phone = document.getElementById('phone').value.trim();
-
-    if (!fname || !email || !phone) return;
-
-    showMemberToast();
-    form.reset();
-  });
-});
-
-function getCart()      { return JSON.parse(localStorage.getItem('bkCart') || '[]'); }
-function saveCart(cart) { localStorage.setItem('bkCart', JSON.stringify(cart)); }
-
-function removeFromCart(id) {
-  saveCart(getCart().filter(x => x.id !== id));
-  renderCartDrawer();
-}
-
-function updateQty(id, delta) {
-  const cart = getCart();
-  const idx  = cart.findIndex(x => x.id === id);
-  if (idx === -1) return;
-  cart[idx].qty = Math.max(1, cart[idx].qty + delta);
-  saveCart(cart);
-  renderCartDrawer();
-}
-
-function renderCartDrawer() {
-  const cart     = getCart();
-  const totalQty = cart.reduce((s, x) => s + x.qty, 0);
-  const totalAmt = cart.reduce((s, x) => s + x.price * x.qty, 0);
-
-  const countEl = document.getElementById('cart-count');
-  if (countEl) countEl.textContent = totalQty;
-
-  const drawerCount = document.getElementById('drawer-count');
-  const subtotalEl  = document.getElementById('drawer-subtotal');
-  const totalEl     = document.getElementById('drawer-total');
-  if (drawerCount) drawerCount.textContent = totalQty;
-  if (subtotalEl)  subtotalEl.textContent  = totalAmt.toLocaleString('en-IN');
-  if (totalEl)     totalEl.textContent     = totalAmt.toLocaleString('en-IN');
-
-  const itemsEl = document.getElementById('drawer-items');
-  if (!itemsEl) return;
-
-  if (cart.length === 0) {
-    itemsEl.innerHTML = '<p class="cart-empty-msg" style="color:#aaa;text-align:center;padding:40px 0;font-size:14px;">Your cart is empty.</p>';
-    return;
-  }
-
-  itemsEl.innerHTML = cart.map(item => `
-    <div class="cart-line" style="display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #f5f2ed;">
-      <img src="${item.image}" alt="${item.name}"
-           style="width:60px;height:60px;object-fit:contain;border-radius:10px;background:#f7f5f0;padding:4px;flex-shrink:0;">
-   <div class="cart-line-info">
-            <h5>${item.name}</h5>
-            <p>Qty: ${item.qty}</p>
-            <button class="cart-line-remove" onclick="removeFromCart(${item.id})">
-              <i class="fa-solid fa-xmark"></i> Remove
-            </button>
-          </div>
-          <span class="cart-line-price">₹${(item.price * item.qty).toLocaleString('en-IN')}</span>
-    </div>
-  `).join('');
-}
-function openCartDrawer() {
-  document.getElementById('cartDrawer').classList.add('open');
-  document.getElementById('cartOverlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeCartDrawer() {
-  document.getElementById('cartDrawer').classList.remove('open');
-  document.getElementById('cartOverlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-function goToCheckout() {
-  const cart = getCart();
-  if (cart.length === 0) {
-    const el = document.getElementById('drawer-items');
-    if (el) {
-      el.innerHTML = '<p style="color:#c0392b;text-align:center;padding:20px 0;font-size:13px;font-weight:600;"><i class="fa-solid fa-circle-exclamation"></i> Your cart is empty. Add items from the Store.</p>';
-    }
-    return;
-  }
-  localStorage.setItem('checkoutMode', 'cart');
-  window.location.href = 'store-details';
-}
-document.addEventListener('DOMContentLoaded', renderCartDrawer);
-    </script> -->
-
-
-<!-- scroll To Top -->
- <script>
-window.addEventListener('scroll', function () {
-  const btn = document.getElementById('scrollTopBtn');
-  if (btn) {
-    btn.classList.toggle('show', window.scrollY > 300);
-  }
-});
-
-function toggleMenu() {
-  const menu = document.getElementById('mainMenu');
-  if (menu) menu.classList.toggle('open');
-}
-</script>
-
-
-
-   <script src="assets/js/jquery-3.7.1.min.js"></script>
-    <!-- Bootstrap js file -->
-    <script src="assets/js/bootstrap.min.js"></script>
-    <!-- Validator js file -->
-    <script src="assets/js/validator.min.js"></script>
-    <!-- SlickNav js file -->
-    <script src="assets/js/jquery.slicknav.js"></script>
-    <!-- Swiper js file -->
-    <script src="assets/js/swiper-bundle.min.js"></script>
-    <!-- Counter js file -->
-    <script src="assets/js/jquery.waypoints.min.js"></script>
-    <script src="assets/js/jquery.counterup.min.js"></script>
-    <!-- Magnific js file -->
-    <script src="assets/js/jquery.magnific-popup.min.js"></script>
-    <!-- SmoothScroll -->
-    <script src="assets/js/SmoothScroll.js"></script>
-    <!-- Parallax js -->
-    <script src="assets/js/parallaxie.js"></script>
-    <!-- MagicCursor js file -->
-    <script src="assets/js/gsap.min.js"></script>
-    <script src="assets/js/magiccursor.js"></script>
-    <!-- Text Effect js file -->
-    <script src="assets/js/SplitText.js"></script>
-    <script src="assets/js/ScrollTrigger.min.js"></script>
-    <!-- YTPlayer js File -->
-    <script src="assets/js/jquery.mb.YTPlayer.min.js"></script>
-    <!-- Wow js file -->
-    <script src="assets/js/wow.min.js"></script>
-    <!-- Main Custom js file -->
-    <script src="assets/js/function.js"></script>
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-
+  <!--
+    ════════════════════════════════════════════════════════════════════════
+    REMOVED: legacy static-HTML scripts (cart drawer, product zoom, checkout,
+    OTP, Razorpay handler, contact/appointment/member toast forms).
+
+    These were carried over from the original static theme and are now fully
+    re-implemented in Angular — see:
+        • src/app/app.ts                     (cart drawer, checkout, OTP, toasts)
+        • src/app/services/cart.ts           (cart state)
+        • src/app/pages/**/*.ts              (page forms)
+    Keeping them here duplicated global functions, bound to elements Angular
+    controls, and shipped dead code. They have been deleted to keep the DOM
+    single-owned by Angular. No UI or behaviour changed.
+    ════════════════════════════════════════════════════════════════════════
+  -->
+
+  <!--
+    REMOVED: inline scroll-to-top + toggleMenu() helpers. Both are already
+    implemented reactively in src/app/app.ts (onScroll + toggleMenu()), so the
+    inline versions were redundant duplicates.
+  -->
+
+  <!-- ══ Theme JavaScript libraries ═══════════════════════════════════════
+       Load order matters: jQuery must precede its plugins, and GSAP must
+       precede ScrollTrigger/SplitText. These drive the theme's animations and
+       interactions, so they are kept intact and in order (removing any would
+       change the existing UI). They correctly sit before </body>. -->
+  <script src="assets/js/jquery-3.7.1.min.js"></script>
+  <!-- Bootstrap js file -->
+  <script src="assets/js/bootstrap.min.js"></script>
+  <!-- Validator js file -->
+  <script src="assets/js/validator.min.js"></script>
+  <!-- SlickNav js file -->
+  <script src="assets/js/jquery.slicknav.js"></script>
+  <!-- Swiper js file -->
+  <script src="assets/js/swiper-bundle.min.js"></script>
+  <!-- Counter js file -->
+  <script src="assets/js/jquery.waypoints.min.js"></script>
+  <script src="assets/js/jquery.counterup.min.js"></script>
+  <!-- Magnific js file -->
+  <script src="assets/js/jquery.magnific-popup.min.js"></script>
+  <!-- SmoothScroll -->
+  <script src="assets/js/SmoothScroll.js"></script>
+  <!-- Parallax js -->
+  <script src="assets/js/parallaxie.js"></script>
+  <!-- MagicCursor js file -->
+  <script src="assets/js/gsap.min.js"></script>
+  <script src="assets/js/magiccursor.js"></script>
+  <!-- Text Effect js file -->
+  <script src="assets/js/SplitText.js"></script>
+  <script src="assets/js/ScrollTrigger.min.js"></script>
+  <!-- YTPlayer js File -->
+  <script src="assets/js/jquery.mb.YTPlayer.min.js"></script>
+  <!-- Wow js file -->
+  <script src="assets/js/wow.min.js"></script>
+  <!-- Main Custom js file -->
+  <script src="assets/js/function.js"></script>
+
+  <!-- Razorpay checkout — third-party, only needed when a user checks out,
+       so it is deferred to keep it off the critical rendering path (better INP/LCP). -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js" defer></script>
 
 </body>
 </html>

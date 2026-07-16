@@ -1,81 +1,73 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home';
-import { WisdomComponent } from './pages/about_us/wisdom/wisdom';
-import { OurGuruComponent } from './pages/about_us/our-guru/our-guru';
-import { EmotionalWellnessComponent } from './pages/services/emotional-wellness/emotional-wellness';
-import { PhysicalWellnessComponent } from './pages/services/physical-wellness/physical-wellness';
-import { SpiritualWellnessComponent } from './pages/services/spiritual-wellness/spiritual-wellness';
-import { TherapeuticWellnessComponent } from './pages/services/therapeutic-wellness/therapeutic-wellness';
-import { EnvironmentComponent } from './pages/social_impacts/environment/environment';
-import { FarmerSupportComponent } from './pages/social_impacts/farmer-support/farmer-support';
-import { LivelihoodComponent } from './pages/social_impacts/livelihood/livelihood';
-import { RuralHealthcareComponent } from './pages/social_impacts/rural-healthcare/rural-healthcare';
-import { NewsComponent } from './pages/news/news';
-import { ContactComponent } from './pages/contact/contact';
-import { AppontmentComponent } from './pages/appontment/appontment';
-import { MemberComponent } from './pages/member/member';
-import { SkincareComponent } from './pages/stores/skincare/skincare';
-import { StoreDetailsComponent } from './pages/stores/store-details/store-details';
-import { AllProductsComponent } from './pages/stores/all-products/all-products';
-import { DonationComponent } from './pages/donation/donation';
-import { SitemapComponent } from './pages/sitemap/sitemap';
-import { AuraMechanismComponent } from './pages/services/aura-mechanism/aura-mechanism';
-import { MysticComponent } from './pages/services/mystic/mystic';
-import { LittleDiamondComponent } from './pages/services/little-diamond/little-diamond';
-import { InnerHushComponent } from './pages/services/inner-hush/inner-hush';
-import { YogicElementsComponent } from './pages/services/yogic-elements/yogic-elements';
-import { VedicFoodComponent } from './pages/services/vedic-food/vedic-food';
-import { MahaVashyaComponent } from './pages/services/maha-vashya/maha-vashya';
-import { MonkComponent } from './pages/act-for-good/monk/monk';
-import { VisionComponent } from './pages/act-for-good/vision/vision';
-import { SupportComponent } from './pages/act-for-good/support/support';
-import { PanchaAngaComponent } from './pages/act-for-good/pancha-anga/pancha-anga';
-import { WhoWeAreComponent } from './pages/about_us/who-we-are/who-we-are';
-import { Support } from './pages/social_impacts/support/support';
 
+/**
+ * ────────────────────────────────────────────────────────────────────────────
+ *  Route configuration — lazy-loaded (code-split) pages
+ * ────────────────────────────────────────────────────────────────────────────
+ *  Every page uses `loadComponent` so its code ships in a separate chunk that
+ *  is fetched only when the route is visited. This keeps the INITIAL JavaScript
+ *  bundle small (faster first load / better LCP + INP) instead of eagerly
+ *  importing all ~30 pages up front.
+ *
+ *  Navigation still feels instant: app.config.ts enables PreloadAllModules, so
+ *  the route chunks are quietly downloaded in the background after the first
+ *  paint. Behaviour and UI are unchanged — this is a pure delivery optimization.
+ * ────────────────────────────────────────────────────────────────────────────
+ */
 export const routes: Routes = [
+  { path: 'home', loadComponent: () => import('./pages/home/home').then(m => m.HomeComponent) },
+  { path: '', loadComponent: () => import('./pages/home/home').then(m => m.HomeComponent) },
 
-    {path:'home',component:HomeComponent},
-    {path:'',component:HomeComponent},
-    {path:'our-guru',component:OurGuruComponent},
-    {path:'wisdom',component:WisdomComponent},
-    {path:'emotional-wellness',component:EmotionalWellnessComponent},
-    {path:'physical-wellness',component:PhysicalWellnessComponent},
-    {path:'spiritual-wellness',component:SpiritualWellnessComponent},
-    {path:'therapeutic-wellness',component:TherapeuticWellnessComponent},
-    {path:'environment',component:EnvironmentComponent},
-    {path:'farmer-support',component:FarmerSupportComponent},
-    {path:'livelihood',component:LivelihoodComponent},
-    {path:'rural-healthcare',component:RuralHealthcareComponent},
-    {path:'news',component:NewsComponent},
-    {path:'contact',component:ContactComponent},
-    {path:'appointment',component:AppontmentComponent},
-    {path:'member',component:MemberComponent},
-    {path:'store/:category',component:SkincareComponent},
-    {path:'store-details',component:StoreDetailsComponent},
-    {path:'allproducts',component:AllProductsComponent},
-    {path:'donation',component:DonationComponent},
-    {path:'sitemap',component:SitemapComponent},
-    {path:'aura-mechanism',component:AuraMechanismComponent},
-    {path:'mystic-kriya',component:MysticComponent},
-    {path:'little-diamonds',component:LittleDiamondComponent},
-    {path:'inner-hush',component:InnerHushComponent},
-    {path:'yogic-elements',component:YogicElementsComponent},
-    {path:'vedic-food',component:VedicFoodComponent},
-    {path:'maha-vashya',component:MahaVashyaComponent},
-    {path:'monk',component:MonkComponent},
+  // About Us
+  { path: 'who-we-are', loadComponent: () => import('./pages/about_us/who-we-are/who-we-are').then(m => m.WhoWeAreComponent) },
+  { path: 'our-guru', loadComponent: () => import('./pages/about_us/our-guru/our-guru').then(m => m.OurGuruComponent) },
+  { path: 'wisdom', loadComponent: () => import('./pages/about_us/wisdom/wisdom').then(m => m.WisdomComponent) },
 
-    {path:'vision',component:VisionComponent},
-    {path:'support',component:SupportComponent},
-    {path:'pacha-anga',component:PanchaAngaComponent},
-    {path:'who-we-are',component:WhoWeAreComponent},
-    {path:'social-support',component:Support}
+  // Services
+  { path: 'aura-mechanism', loadComponent: () => import('./pages/services/aura-mechanism/aura-mechanism').then(m => m.AuraMechanismComponent) },
+  { path: 'mystic-kriya', loadComponent: () => import('./pages/services/mystic/mystic').then(m => m.MysticComponent) },
+  { path: 'little-diamonds', loadComponent: () => import('./pages/services/little-diamond/little-diamond').then(m => m.LittleDiamondComponent) },
+  { path: 'inner-hush', loadComponent: () => import('./pages/services/inner-hush/inner-hush').then(m => m.InnerHushComponent) },
+  { path: 'yogic-elements', loadComponent: () => import('./pages/services/yogic-elements/yogic-elements').then(m => m.YogicElementsComponent) },
+  { path: 'vedic-food', loadComponent: () => import('./pages/services/vedic-food/vedic-food').then(m => m.VedicFoodComponent) },
+  { path: 'maha-vashya', loadComponent: () => import('./pages/services/maha-vashya/maha-vashya').then(m => m.MahaVashyaComponent) },
+  { path: 'emotional-wellness', loadComponent: () => import('./pages/services/emotional-wellness/emotional-wellness').then(m => m.EmotionalWellnessComponent) },
+  { path: 'physical-wellness', loadComponent: () => import('./pages/services/physical-wellness/physical-wellness').then(m => m.PhysicalWellnessComponent) },
+  { path: 'spiritual-wellness', loadComponent: () => import('./pages/services/spiritual-wellness/spiritual-wellness').then(m => m.SpiritualWellnessComponent) },
+  { path: 'therapeutic-wellness', loadComponent: () => import('./pages/services/therapeutic-wellness/therapeutic-wellness').then(m => m.TherapeuticWellnessComponent) },
 
+  // Act for Good  (clean, keyword-rich URLs)
+  { path: 'feed-a-monk', loadComponent: () => import('./pages/act-for-good/monk/monk').then(m => m.MonkComponent) },
+  { path: 'the-vision-in-action-of-bhagavad-karma', loadComponent: () => import('./pages/act-for-good/vision/vision').then(m => m.VisionComponent) },
+  { path: 'support-for-dharma-samrakshana', loadComponent: () => import('./pages/act-for-good/support/support').then(m => m.SupportComponent) },
+  { path: 'pancha-anga-karma-vruksham', loadComponent: () => import('./pages/act-for-good/pancha-anga/pancha-anga').then(m => m.PanchaAngaComponent) },
 
+  // Social Impacts
+  { path: 'environment', loadComponent: () => import('./pages/social_impacts/environment/environment').then(m => m.EnvironmentComponent) },
+  { path: 'farmer-support', loadComponent: () => import('./pages/social_impacts/farmer-support/farmer-support').then(m => m.FarmerSupportComponent) },
+  { path: 'livelihood', loadComponent: () => import('./pages/social_impacts/livelihood/livelihood').then(m => m.LivelihoodComponent) },
+  { path: 'rural-healthcare', loadComponent: () => import('./pages/social_impacts/rural-healthcare/rural-healthcare').then(m => m.RuralHealthcareComponent) },
+  { path: 'social-support', loadComponent: () => import('./pages/social_impacts/support/support').then(m => m.Support) },
 
+  // Utility / conversion
+  { path: 'news', loadComponent: () => import('./pages/news/news').then(m => m.NewsComponent) },
+  { path: 'contact', loadComponent: () => import('./pages/contact/contact').then(m => m.ContactComponent) },
+  { path: 'appointment', loadComponent: () => import('./pages/appontment/appontment').then(m => m.AppontmentComponent) },
+  { path: 'member', loadComponent: () => import('./pages/member/member').then(m => m.MemberComponent) },
+  { path: 'donation', loadComponent: () => import('./pages/donation/donation').then(m => m.DonationComponent) },
+  { path: 'sitemap', loadComponent: () => import('./pages/sitemap/sitemap').then(m => m.SitemapComponent) },
 
+  // Store
+  { path: 'store/:category', loadComponent: () => import('./pages/stores/skincare/skincare').then(m => m.SkincareComponent) },
+  { path: 'store-details', loadComponent: () => import('./pages/stores/store-details/store-details').then(m => m.StoreDetailsComponent) },
+  { path: 'allproducts', loadComponent: () => import('./pages/stores/all-products/all-products').then(m => m.AllProductsComponent) },
 
-
-
-
+  // ── Backward-compatible redirects: old URL → new SEO-friendly URL ──────────
+  // Keeps existing/shared/bookmarked links and indexed pages working. For true
+  // 301s (SEO link-equity transfer), also add server-level 301 rules — see the
+  // "Hosting / Infrastructure" section of the technical documentation.
+  { path: 'monk', redirectTo: 'feed-a-monk', pathMatch: 'full' },
+  { path: 'vision', redirectTo: 'the-vision-in-action-of-bhagavad-karma', pathMatch: 'full' },
+  { path: 'support', redirectTo: 'support-for-dharma-samrakshana', pathMatch: 'full' },
+  { path: 'pacha-anga', redirectTo: 'pancha-anga-karma-vruksham', pathMatch: 'full' },
 ];

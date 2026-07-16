@@ -183,7 +183,7 @@ export class DonationComponent implements OnDestroy {
       currency: 'INR',
       name: 'Bhagavad Karma',
       description: 'Donation — ' + this.purpose(),
-      image: 'assets/images/logo/BHAGAVADKARMA - Logo.svg',
+      image: 'assets/images/logo/bhagavad-karma-logo.svg',
 
       notes: {
         pan:     this.dPan,

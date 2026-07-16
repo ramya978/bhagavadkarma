@@ -7,7 +7,7 @@
           <h1 class="text-anime-style-2" data-cursor="-opaque">
             {{ product()?.name || 'Product Details' }}
           </h1>
-          <nav class="wow fadeInUp">
+          <nav class="wow fadeInUp" aria-label="Breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
               <li class="breadcrumb-item"><a routerLink="/store/skincare">Store</a></li>
@@ -36,7 +36,7 @@
                  (mouseleave)="onMouseLeave()"
                  (mousemove)="onMouseMove($event)"
                  (click)="openLightbox()">
-              <img #mainImg class="pd-main-img"
+              <img decoding="async" #mainImg class="pd-main-img"
                    [src]="productImages()[activeImageIndex()]"
                    [alt]="p.name">
               @if (showZoom()) {
@@ -130,7 +130,7 @@
 @if (lightboxOpen()) {
   <div class="pd-lightbox" (click)="closeLightbox()">
     <button class="pd-lb-close" (click)="closeLightbox()">&#10005;</button>
-    <img [src]="productImages()[activeImageIndex()]" [alt]="product()?.name">
+    <img loading="lazy" decoding="async" [src]="productImages()[activeImageIndex()]" [alt]="product()?.name">
   </div>
 }
 

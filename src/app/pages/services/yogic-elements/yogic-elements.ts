@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-yogic-elements',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './yogic-elements.html',
   styleUrl: './yogic-elements.css',
 })

@@ -5,6 +5,7 @@ import {
 import { RouterOutlet, RouterLink, Router } from '@angular/router';
 import { CartService } from './services/cart';
 import { AuthService } from './services/auth';
+import { SeoService } from './services/seo';
 import { FormsModule } from '@angular/forms';
 import { CartItem } from './Models/product.model';
 import { RAZORPAY_KEY } from './payment.config';
@@ -21,6 +22,7 @@ export class App implements OnInit, OnDestroy {
   authService = inject(AuthService);
   private router = inject(Router);
   private cdr    = inject(ChangeDetectorRef);
+  private seo    = inject(SeoService);
 
   isMenuOpen = signal(false);
 
@@ -146,6 +148,10 @@ export class App implements OnInit, OnDestroy {
   }
 
   constructor() {
+    // Start dynamic per-route SEO (title, meta, canonical, OG, JSON-LD).
+    // Head-only side effects — does not affect the rendered UI.
+    this.seo.init();
+
     effect(() => {
       const cart = this.cartService.cart();
       this.cartCount.set(cart.reduce((s, x) => s + x.qty, 0));
