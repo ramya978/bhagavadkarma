@@ -880,3 +880,8 @@
   .page-news{padding:60px 0;}
   .news-section-title{font-size:1.7rem;}
 }
+
+a{
+      color:rgb(201, 169, 127);
+    font-weight: 600;
+}

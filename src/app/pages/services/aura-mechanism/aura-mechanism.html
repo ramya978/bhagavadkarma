@@ -1,31 +1,45 @@
 <!-- Page Header Start -->
-<div class="page-header parallaxie" style="background-image: url('assets/images/Gallery/SERVICES/Aura.jpeg');">
 
 
-  <!-- Background Video End -->
 
-  <!-- Dark Overlay -->
-  <div style="position:absolute; top:0; left:0; width:100%; height:100%;
-              background:rgba(0,0,0,0.5); z-index:1;"></div>
 
-  <div class="container" style="position:relative; z-index:2;">
-    <div class="row align-items-center">
-      <div class="col-lg-12">
-        <div class="page-header-box">
-          <h1 class="text-anime-style-2" data-cursor="-opaque">Aura Mechanism</h1>
-          <nav class="wow fadeInUp" aria-label="Breadcrumb">
-            <ol class="breadcrumb">
- <!-- <li class="breadcrumb-item"><a routerLink="/home">home</a></li> -->              <!-- <li class="breadcrumb-item"><a href="#">about us</a></li> -->
-              <li class="breadcrumb-item active" aria-current="page">Services</li>
-              <li class="breadcrumb-item active" aria-current="page">Aura Mechanism</li>
+<div class="page-header parallaxie" style="position:relative; overflow:hidden;">
+    
+  
+       <video [muted]="true" autoplay loop playsinline
+        style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); 
+               min-width:100%; min-height:100%; width:auto; height:auto; 
+               object-fit:cover; z-index:0;">
+        <source src="assets/images/Gallery/WISDOM/WISDOM BANNER VDO.mp4" type="video/mp4">
+    </video>
+    <!-- Background Video End -->
 
-            </ol>
-          </nav>
+    <!-- Dark Overlay -->
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; 
+                background:rgba(0,0,0,0.5); z-index:1;"></div>
+
+    <div class="container" style="position:relative; z-index:2;">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <!-- Page Header Box Start -->
+                <div class="page-header-box">
+                    <h1 class="text-anime-style-2" data-cursor="-opaque">Aura Mechanism</h1>
+                    <nav class="wow fadeInUp" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+               <li class="breadcrumb-item"><a routerLink="/home">Services</a></li>       
+                                    <!-- <li class="breadcrumb-item"><a href="#">about us</a></li> -->
+                            <li class="breadcrumb-item active" aria-current="page">Aura Mechanism</li>
+                        </ol>
+                    </nav>
+                </div>
+                <!-- Page Header Box End -->
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
+
+
+
 <!-- Page Header End -->
 
 <style>
@@ -617,3 +631,370 @@ There are seven auric bodies in the human body, connected with seven chakras (or
   </div>
 </div>
 <!-- ═══════════════ AURA ARTICLE SECTION END ═══════════════ -->
+
+<style>
+  .about-images1:hover .about-image-title h2 {
+    color: var(--accent-color);
+  }
+
+  .vf-article {
+    background: #fff;
+    padding: 70px 0 50px;
+  }
+
+  .vf-article h2.vf-h2 {
+    font-size: 1.55rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #2b1b12;
+    margin-bottom: 14px;
+  }
+
+  .vf-article h3.vf-h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #2b1b12;
+    margin: 22px 0 10px;
+  }
+
+  .vf-article p {
+    font-size: .97rem;
+    line-height: 1.78;
+    color: #4a4035;
+    margin-bottom: 14px;
+  }
+
+  .vf-article img {
+    width: 100%;
+    border-radius: 14px;
+    margin: 10px 0;
+  }
+
+  .vf-blockquote {
+    border-left: 4px solid #b8860b;
+    background: #fdf8ee;
+    padding: 14px 20px;
+    border-radius: 0 10px 10px 0;
+    margin: 20px 0;
+    font-style: italic;
+    font-size: .97rem;
+    color: #5c4a28;
+  }
+
+  .vf-highlight-card {
+    background: #1a3a2a0a;
+    border-radius: 16px;
+    padding: 28px 24px;
+    color: #3d2b1f;
+    margin-bottom: 28px;
+        /* height: 100%; */
+  }
+
+  .vf-highlight-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #3d2b1f;
+    line-height: 30px;
+    margin-bottom: 12px;
+  }
+
+  .vf-highlight-card p {
+    font-size: .9rem;
+    line-height: 1.7;
+    color: #3d2b1f;
+    margin: 0;
+  }
+
+  .vf-services {
+    background: #f9f4ec;
+    border-radius: 14px;
+    padding: 22px 24px;
+    margin-top: 20px;
+  }
+
+  .vf-services h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #2b1b12;
+    margin-bottom: 14px;
+  }
+
+  .vf-services ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .vf-services ul li {
+    padding: 6px 0 6px 22px;
+    position: relative;
+    font-size: .92rem;
+    color: #4a4035;
+    border-bottom: 1px dashed rgba(43, 27, 18, .12);
+  }
+
+  .vf-services ul li:last-child {
+    border-bottom: none;
+  }
+
+  .vf-services ul li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: #b8860b;
+    font-size: .7rem;
+    top: 9px;
+  }
+
+  .vf-banner {
+    background: linear-gradient(135deg, #1c1432 0%, #2e1f5e 100%);
+    border-radius: 18px;
+    padding: 36px 32px;
+    text-align: center;
+    margin: 30px 0;
+    color: #fff;
+  }
+
+  .vf-banner h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #f5d98f;
+    margin-bottom: 10px;
+  }
+
+  .vf-banner p {
+    font-size: 1rem;
+    color: #cbbfee;
+    margin: 0;
+  }
+
+  .vf-gold-banner {
+    background: linear-gradient(135deg, #8b6508, #b8860b, #8b6508);
+    border-radius: 18px;
+    padding: 36px 32px;
+    text-align: center;
+    margin: 30px 0;
+    color: #fff;
+  }
+
+  .vf-gold-banner h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff4d6;
+    margin-bottom: 10px;
+  }
+
+  .vf-gold-banner p {
+    font-size: 1rem;
+    color: #f5edd6;
+    margin: 0;
+  }
+
+  .vf-collapse {
+    position: relative;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .6s ease;
+  }
+
+  .vf-collapse.expanded {
+    max-height: 3000px;
+  }
+
+  .vf-readmore-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 14px 0 22px;
+    padding: 10px 26px;
+    background: #b8860b;
+    color: white;
+    font-weight: 700;
+    font-size: .85rem;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform .25s ease;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+  }
+
+  .vf-readmore-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .vf-readmore-btn .arrow {
+    transition: transform .3s ease;
+    display: inline-block;
+    font-size: .9rem;
+  }
+
+  .vf-readmore-btn.open .arrow {
+    transform: rotate(180deg);
+  }
+
+  .vf-divider {
+    border: none;
+    border-top: 1.5px dashed rgb(0 0 0 / 38%);
+    margin: 28px 0;
+  }
+
+  .vf-program-card {
+    background: #fff;
+    border: 1px solid rgba(43, 27, 18, .08);
+    border-radius: 16px;
+    padding: 22px;
+    height: 100%;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .04);
+  }
+
+  .vf-program-card h4 {
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: #2b1b12;
+    margin-bottom: 10px;
+  }
+
+  .vf-program-card p,
+  .vf-program-card li {
+    font-size: .95rem;
+    line-height: 1.72;
+    color: #4a4035;
+  }
+
+  .vf-program-card ul {
+    padding-left: 18px;
+    margin: 10px 0 0;
+  }
+
+  .vf-ticket-list {
+    padding: 0;
+    margin: 12px 0 0;
+    list-style: none;
+  }
+
+  .vf-ticket-list li {
+    padding: 6px 0;
+    color: #4a4035;
+    font-size: .95rem;
+  }
+
+  @media (max-width: 991px) {
+    .vf-article h2.vf-h2 { font-size: 1.25rem; }
+    .vf-banner { padding: 24px 18px; }
+    .vf-banner h2 { font-size: 1.25rem; }
+  }
+</style>
+
+
+<!-- ═══════════════ DIVYA VASHEEKARAN CONTENT ═══════════════ -->
+<div class="vf-article">
+  <div class="container">
+
+    <div class="row g-4 align-items-center">
+      <div class="col-lg-7">
+        <h2 class="vf-h2">Mastering the Art of Attraction</h2>
+        <p>
+          In a world driven by connection, the most powerful tool you possess is your own energy. True <strong>Divya Vasheekaran</strong> is not about control; it is the ancient, sophisticated art of attaining grace and influence through the mastery of your own vibration. When your internal energy is aligned, the world naturally responds to you.
+        </p>
+        <p>
+          This seminar is a deep dive into the intersection of ancient mystic wisdom and the scientific principles of the human Aura.
+        </p>
+        <div class="vf-blockquote">
+          “When the mind is conquered, the world is won. Real Divya Vasheekaran begins within.”
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <img decoding="async" src="assets/images/Gallery/SERVICES/Maha-Vashya-Shakthi-Vasheekarana.jpg" alt="Divya Vasheekaran and Aura Science seminar">
+      </div>
+    </div>
+
+    <hr class="vf-divider">
+
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <h3 class="vf-h3">What You Will Discover</h3>
+        <ul class="vf-services" style="    padding: 47px 47px;
+    margin-top: 0;
+    line-height: normal;
+    color: black;
+    text-align: justify;">
+          <li style="margin-bottom: 17px;"><strong>The Foundation of Divya Vasheekaran:</strong> Learn how to shift from attraction to alignment and resonate at a frequency that naturally draws positive opportunities and people toward you.</li>
+          <li style="margin-bottom: 17px;"><strong>Aura Mechanism & Expansion:</strong> Understand the layers of your energetic field and learn techniques to cleanse, strengthen, and project a radiant Aura that commands respect and peace.</li>
+          <li style="margin-bottom: 17px;"><strong>The Power of Divya Vasheekaran-Mantra:</strong> Discover the sound frequencies that calm the mind and harmonise your external environment.</li>
+          <li style="margin-bottom: 17px;"><strong>Ethical Magnetism:</strong> Use spiritual influence to resolve conflicts, improve professional relationships, and foster deep personal connections.</li>
+        </ul>
+      </div>
+      <div class="col-lg-6">
+        <div class="vf-highlight-card">
+          <h3>Why Join This Program?</h3>
+          <p>
+            This program is more than a lecture; it is a transformative experience for leaders, seekers, and anyone looking to master their social and spiritual presence. By understanding the “Auric Forecast” of your own life, you can navigate challenges with calm authority.
+          </p>
+
+          
+    <div class="row g-4">
+      <div class="col-lg-12">
+        <div class="vf-banner">
+          <h2>Book Your Journey</h2>
+          <p>Elevate your presence and master the subtle energies that define your success. Focus on your wellness with <a routerLink="/spiritual-wellness">spiritual insights</a>, personal magnetism, harmonious relationships, and inner net.</p>
+        </div>
+      </div>
+    </div>
+        </div>
+
+        
+      </div>
+    </div>
+
+    <hr class="vf-divider">
+
+
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="vf-program-card">
+          <h4>The Introductory Masterclass</h4>
+          <p><strong>Duration:</strong> 2 hours (one-day session)</p>
+          <p><strong>Focus:</strong> Basics of Aura cleansing and the ethical philosophy of Divya Vasheekaran.</p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="vf-program-card">
+          <h4>The Advanced Immersion</h4>
+          <p><strong>Duration:</strong> 5 days (weekend sessions)</p>
+          <p><strong>Focus:</strong> Advanced Divya Vasheekaran techniques, Aura reading and forecasting, and practical application.</p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="vf-program-card">
+          <h4>The Exclusive Mentorship</h4>
+          <p><strong>Format:</strong> 1-on-1 VIP guidance for those seeking personalised spiritual support.</p>
+          <p><strong>Focus:</strong> Personalised energy analysis, guidance for life goals, and direct access to expert mentorship.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4 mt-1">
+      <!-- <div class="col-lg-7">
+        <div class="vf-gold-banner">
+          <h2>Energy-exchange slots are limited</h2>
+          <p>Please book now to secure personalised guidance and begin your transformation.</p>
+        </div>
+      </div> -->
+      <div class="col-lg-12">
+        <div class="vf-services">
+          <h3>Program Benefits & Tickets</h3>
+          <ul class="vf-ticket-list">
+            <li><strong>Early Bird Discount:</strong> 10% off for bookings made 7 days before the seminar starts.</li>
+            <li><strong>Silver Ticket:</strong> Seminar access only.</li>
+            <li><strong>Gold Ticket:</strong> Includes a private 15-minute Aura consultation with an expert.</li>
+            <li><strong>Value Add-ons:</strong> Digital Aura Guide and Divya Vasheekaran-Mantra for daily practice.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- ═══════════════ DIVYA VASHEEKARAN CONTENT END ═══════════════ -->
+

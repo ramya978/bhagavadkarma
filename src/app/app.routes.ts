@@ -37,6 +37,7 @@ export const routes: Routes = [
   { path: 'therapeutic-wellness', loadComponent: () => import('./pages/services/therapeutic-wellness/therapeutic-wellness').then(m => m.TherapeuticWellnessComponent) },
 
   // Act for Good  (clean, keyword-rich URLs)
+  { path: 'act-for-good', loadComponent: () => import('./pages/act-for-good/monk/monk').then(m => m.MonkComponent) },
   { path: 'feed-a-monk', loadComponent: () => import('./pages/act-for-good/monk/monk').then(m => m.MonkComponent) },
   { path: 'the-vision-in-action-of-bhagavad-karma', loadComponent: () => import('./pages/act-for-good/vision/vision').then(m => m.VisionComponent) },
   { path: 'support-for-dharma-samrakshana', loadComponent: () => import('./pages/act-for-good/support/support').then(m => m.SupportComponent) },
@@ -48,6 +49,7 @@ export const routes: Routes = [
   { path: 'livelihood', loadComponent: () => import('./pages/social_impacts/livelihood/livelihood').then(m => m.LivelihoodComponent) },
   { path: 'rural-healthcare', loadComponent: () => import('./pages/social_impacts/rural-healthcare/rural-healthcare').then(m => m.RuralHealthcareComponent) },
   { path: 'social-support', loadComponent: () => import('./pages/social_impacts/support/support').then(m => m.Support) },
+  { path: 'community-well-being', loadComponent: () => import('./pages/social_impacts/community-well-being/community-well-being').then(m => m.CommunityWellBeingComponent) },
 
   // Utility / conversion
   { path: 'news', loadComponent: () => import('./pages/news/news').then(m => m.NewsComponent) },

@@ -1,0 +1,190 @@
+
+/* Sidebar CTA Box without image */
+.sidebar-cta-box {
+    margin-top: 30px;
+}
+
+/* .sidebar-cta-box .sidebar-cta-content h3 {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 15px;
+    line-height: 1.4;
+} */
+
+/* Service Process Items - icon styling */
+.service-process-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 25px 20px;
+    background: #fff;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-process-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.service-process-item .icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.service-process-item .service-process-content {
+    flex: 1;
+}
+
+.service-process-item .service-process-content h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a2e1c;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.service-process-item .service-process-content p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Discover Peace Box */
+.discover-peace-box {
+    background: #f0f7ee;
+    border: 1px solid #d4e4cf;
+    border-radius: 16px;
+    padding: 35px 30px;
+    margin: 30px 0;
+}
+
+.discover-peace-box h2 {
+    font-size: 28px;
+    color: #1a2e1c;
+    margin-bottom: 15px;
+}
+
+.discover-peace-box h2 span {
+    color: #2d6a4f;
+}
+
+.discover-peace-box p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* Section Title */
+.section-title {
+    margin-bottom: 30px;
+}
+
+.section-title h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2d6a4f;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a2e1c;
+}
+
+.section-title h2 span {
+    color: #2d6a4f;
+}
+
+/* Service Entry paragraphs */
+.service-entry > p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+/* .btn-default {
+    display: inline-block;
+    padding: 14px 32px;
+    background: #2d6a4f;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-default:hover {
+    background: #1a3a2a;
+    color: #fff;
+    transform: translateY(-2px);
+} */
+
+/* Responsive */
+@media (max-width: 991px) {
+ 
+    
+    .section-title h2 {
+        font-size: 26px;
+    }
+    
+    .discover-peace-box h2 {
+        font-size: 24px;
+    }
+    
+    .service-process-item {
+        padding: 20px 15px;
+    }
+    
+    .service-process-item .service-process-content h3 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 576px) {
+ 
+    .section-title h2 {
+        font-size: 22px;
+    }
+    
+    .discover-peace-box {
+        padding: 25px 20px;
+    }
+    
+    .discover-peace-box h2 {
+        font-size: 20px;
+    }
+    
+    .service-process-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .service-process-item .icon-box {
+        margin-bottom: 10px;
+    }
+}
+
+.service-process-list{
+        display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(283px, 1fr));
+    gap: 17px;
+}
