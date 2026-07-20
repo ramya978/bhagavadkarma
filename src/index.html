@@ -32,24 +32,33 @@
   <!-- Pinterest domain claim (Pinterest Business → Claim → add the tag) -->
   <meta name="p:domain_verify" content="REPLACE_WITH_PINTEREST_DOMAIN_VERIFY_CODE">
 
-  <!-- ══ Open Graph (WhatsApp, Facebook, LinkedIn) ════════════════════════ -->
+  <!-- ══ Open Graph (WhatsApp, Facebook, LinkedIn) ════════════════════════
+       This og:description is DELIBERATELY worded differently from the SEO
+       <meta name="description"> above (see SeoService.ogDescription) — social
+       preview cards read best as an inviting, benefit-led sentence rather
+       than the keyword-led SERP snippet. SeoService overwrites both per
+       route once Angular bootstraps; this is only the pre-hydration/no-JS
+       fallback for "/". -->
   <meta property="og:title" content="Bhagavad Karma | Spiritual Wellness &amp; Charitable Trust">
-  <meta property="og:description" content="Bhagavad Karma is a charitable organisation promoting spiritual awareness, wellness, education and social welfare to uplift mankind across India.">
+  <meta property="og:description" content="Discover Bhagavad Karma — spiritual wellness programmes, Vedic wisdom and seva initiatives that uplift lives across India. Begin your inner journey with us.">
   <meta property="og:image" content="https://bhagavadkarma.org/assets/images/logo/bhagavad-karma-logo.svg">
   <meta property="og:url" content="https://bhagavadkarma.org/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Bhagavad Karma">
   <meta property="og:locale" content="en_IN">
 
-  <!-- ══ Twitter / X Card ═════════════════════════════════════════════════ -->
-  <!-- twitter:site / twitter:creator use the brand's X handle — replace the
+  <!-- ══ Twitter / X Card ═════════════════════════════════════════════════
+       twitter:description is shorter/punchier again (SeoService.twitterDescription)
+       — X cards truncate aggressively, so this is written to read fully  in
+       one line rather than duplicating the OG or SEO copy.
+       twitter:site / twitter:creator use the brand's X handle — replace the
        placeholder in SITE.twitterHandle (src/app/services/seo-data.ts) with the
        real, verified handle. SeoService keeps these in sync per route. -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@bhagavadkarma">
   <meta name="twitter:creator" content="@bhagavadkarma">
   <meta name="twitter:title" content="Bhagavad Karma | Spiritual Wellness &amp; Charitable Trust">
-  <meta name="twitter:description" content="Bhagavad Karma is a charitable organisation promoting spiritual awareness, wellness, education and social welfare to uplift mankind across India.">
+  <meta name="twitter:description" content="Spiritual wellness, Vedic wisdom and seva for social good — explore the Bhagavad Karma mission.">
   <meta name="twitter:image" content="https://bhagavadkarma.org/assets/images/logo/bhagavad-karma-logo.svg">
 
   <!-- ══ rel="me" identity links (entity/authorship — reinforces sameAs) ═══

@@ -885,3 +885,19 @@ a{
       color:rgb(201, 169, 127);
     font-weight: 600;
 }
+/* ══ Footer first-paint fix (layout-shift guard) ═══════════════════════════
+   Every route is lazy-loaded (app.routes.ts → loadComponent), so on a full
+   page reload Angular renders the app shell (header + empty <main> + footer)
+   a few milliseconds BEFORE the page chunk arrives. With <main> at 0px tall,
+   the footer painted at the top of the viewport and then jumped down when
+   the page (whose hero reserves 100vh) rendered — visible footer flash + CLS.
+
+   This rule reserves one viewport of height for <main> ONLY while the router
+   outlet has no activated page (the routed component is inserted as a sibling
+   AFTER <router-outlet>). The moment the page renders, the selector stops
+   matching, so the final layout of every page — including pages shorter than
+   one viewport — is pixel-identical to before. Browsers without :has()
+   support simply keep the old behaviour (no breakage). */
+main#main-content:not(:has(router-outlet ~ *)) {
+  min-height: 100vh;
+}

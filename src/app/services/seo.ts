@@ -44,6 +44,14 @@ export class SeoService {
     const canonical = this.canonicalUrl(url);
     const image = this.absolute(entry.ogImage ?? SITE.defaultOgImage);
 
+    // Each channel gets its own copy so the SERP snippet, the social-share
+    // card and the Twitter/X card no longer show identical text. Both fall
+    // back gracefully — ogDescription → description, twitterDescription →
+    // ogDescription → description — so every SeoEntry stays valid even if a
+    // future route omits the optional fields.
+    const ogDescription = entry.ogDescription ?? entry.description;
+    const twitterDescription = entry.twitterDescription ?? ogDescription;
+
     // ── Title + description ────────────────────────────────────────────────
     this.title.setTitle(entry.title);
     this.setName('description', entry.description);
@@ -54,7 +62,7 @@ export class SeoService {
 
     // ── Open Graph ─────────────────────────────────────────────────────────
     this.setProp('og:title', entry.title);
-    this.setProp('og:description', entry.description);
+    this.setProp('og:description', ogDescription);
     this.setProp('og:url', canonical);
     this.setProp('og:type', entry.ogType ?? 'website');
     this.setProp('og:image', image);
@@ -64,7 +72,7 @@ export class SeoService {
     // ── Twitter Card ───────────────────────────────────────────────────────
     this.setName('twitter:card', 'summary_large_image');
     this.setName('twitter:title', entry.title);
-    this.setName('twitter:description', entry.description);
+    this.setName('twitter:description', twitterDescription);
     this.setName('twitter:image', image);
     if (SITE.twitterHandle) {
       this.setName('twitter:site', SITE.twitterHandle);
