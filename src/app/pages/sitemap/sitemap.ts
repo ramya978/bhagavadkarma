@@ -29,14 +29,13 @@ interface PageMeta {
   link?: string;
 }
 
-const SECTION_ORDER = [
-  'About Us', 'Services', 'Act for Good', 'Store', 'More',
-];
+const SECTION_ORDER = ['About Us', 'Services', 'Act for Good','Initiatives', 'Store', 'More'];
 
 const GROUP_ICONS: Record<string, string> = {
   'About Us': 'fa-circle-info',
   Services: 'fa-hand-holding-heart',
   'Act for Good': 'fa-hands-helping',
+  Initiatives: 'fa-list-check',
   Store: 'fa-store',
   More: 'fa-ellipsis-h',
 };
@@ -53,32 +52,179 @@ const S4 = 'col-lg-4 col-md-6';
  */
 const PAGE_META: Record<string, PageMeta> = {
   // About Us
-  'who-we-are': { title: 'Who We Are', desc: 'Our mission, values, and the story behind Bhagavad Karma', icon: 'fa-users', iconClass: '', col: 'col-lg-4', section: 'About Us' },
-  'our-guru': { title: 'Our Guru', desc: 'Meet Swami Himaval Badrananda and his spiritual journey', icon: 'fa-user-tie', iconClass: '', col: 'col-lg-4', section: 'About Us' },
-  wisdom: { title: 'Wisdom', desc: 'Ancient spiritual insights and timeless teachings', icon: 'fa-book-open', iconClass: '', col: 'col-lg-4', section: 'About Us' },
+  'who-we-are': {
+    title: 'Who We Are',
+    desc: 'Our mission, values, and the story behind Bhagavad Karma',
+    icon: 'fa-users',
+    iconClass: '',
+    col: 'col-lg-4',
+    section: 'About Us',
+  },
+  'our-guru': {
+    title: 'Our Guru',
+    desc: 'Meet Swami Himaval Badrananda and his spiritual journey',
+    icon: 'fa-user-tie',
+    iconClass: '',
+    col: 'col-lg-4',
+    section: 'About Us',
+  },
+  wisdom: {
+    title: 'Wisdom',
+    desc: 'Ancient spiritual insights and timeless teachings',
+    icon: 'fa-book-open',
+    iconClass: '',
+    col: 'col-lg-4',
+    section: 'About Us',
+  },
 
   // Services (matching navigation menu — only visible dropdown items)
-  'aura-mechanism': { title: 'Aura Mechanism', desc: 'Energy field assessment & chakra balancing', icon: 'fa-circle-nodes', iconClass: 'aura-icon', col: S3, section: 'Services' },
-  'mystic-kriya': { title: 'Mystic Kriya', desc: 'Ancient kriya practices for inner transformation', icon: 'fa-moon', iconClass: 'mystic-icon', col: S3, section: 'Services' },
-  'little-diamonds': { title: 'Little Diamond', desc: 'Youth empowerment & childhood wellness', icon: 'fa-gem', iconClass: 'diamond-icon', col: S3, section: 'Services' },
-  'inner-hush': { title: 'Inner Hush', desc: 'Silence & meditation for inner peace', icon: 'fa-volume-off', iconClass: 'hush-icon', col: S3, section: 'Services' },
-  'yogic-elements': { title: 'Yogic Elements', desc: 'Yoga practice & elemental balance', icon: 'fa-yin-yang', iconClass: 'yogic-icon', col: S3, section: 'Services' },
-  'vedic-food': { title: 'Vedic Food', desc: 'Traditional vedic nutrition & diet guidance', icon: 'fa-seedling', iconClass: 'food-icon', col: S3, section: 'Services' },
-  'spiritual-wellness': { title: 'Spiritual Wellness', desc: 'Aura assessment & sacred rituals', icon: 'fa-spa', iconClass: 'spirit-icon', col: S3, section: 'Services' },
+  'aura-mechanism': {
+    title: 'Aura Mechanism',
+    desc: 'Energy field assessment & chakra balancing',
+    icon: 'fa-circle-nodes',
+    iconClass: 'aura-icon',
+    col: S3,
+    section: 'Services',
+  },
+  'mystic-kriya': {
+    title: 'Mystic Kriya',
+    desc: 'Ancient kriya practices for inner transformation',
+    icon: 'fa-moon',
+    iconClass: 'mystic-icon',
+    col: S3,
+    section: 'Services',
+  },
+  'little-diamonds': {
+    title: 'Little Diamond',
+    desc: 'Youth empowerment & childhood wellness',
+    icon: 'fa-gem',
+    iconClass: 'diamond-icon',
+    col: S3,
+    section: 'Services',
+  },
+  'inner-hush': {
+    title: 'Inner Hush',
+    desc: 'Silence & meditation for inner peace',
+    icon: 'fa-volume-off',
+    iconClass: 'hush-icon',
+    col: S3,
+    section: 'Services',
+  },
+  'yogic-elements': {
+    title: 'Yogic Elements',
+    desc: 'Yoga practice & elemental balance',
+    icon: 'fa-yin-yang',
+    iconClass: 'yogic-icon',
+    col: S3,
+    section: 'Services',
+  },
+  'vedic-food': {
+    title: 'Vedic Food',
+    desc: 'Traditional vedic nutrition & diet guidance',
+    icon: 'fa-seedling',
+    iconClass: 'food-icon',
+    col: S3,
+    section: 'Services',
+  },
+  'spiritual-wellness': {
+    title: 'Spiritual Wellness',
+    desc: 'Aura assessment & sacred rituals',
+    icon: 'fa-spa',
+    iconClass: 'spirit-icon',
+    col: S3,
+    section: 'Services',
+  },
 
   // Act for Good
-  'feed-a-monk': { title: 'Monk', desc: 'Monastic life & spiritual discipline', icon: 'fa-praying-hands', iconClass: 'monk-icon', col: S3, section: 'Act for Good' },
-  'the-vision-in-action-of-bhagavad-karma': { title: 'Our Vision', desc: 'Our mission & long-term goals for society', icon: 'fa-eye', iconClass: 'vision-icon', col: S3, section: 'Act for Good' },
-  'support-for-dharma-samrakshana': { title: 'Support', desc: 'How you can contribute & get involved', icon: 'fa-hand-holding-heart', iconClass: 'support-icon', col: S3, section: 'Act for Good' },
-  'pancha-anga-karma-vruksham': { title: 'Pancha Anga', desc: 'The fivefold path of spiritual practice', icon: 'fa-om', iconClass: 'anga-icon', col: S3, section: 'Act for Good' },
-
-  // Social Impacts (under Act for Good, matching the navigation menu)
-  environment: { title: 'Environment', desc: 'Sustainability & conservation efforts', icon: 'fa-tree', iconClass: 'env-icon', col: S3, section: 'Act for Good' },
-  'farmer-support': { title: 'Farmer Support', desc: 'Empowering agricultural communities', icon: 'fa-tractor', iconClass: 'farmer-icon', col: S3, section: 'Act for Good' },
-  livelihood: { title: 'Livelihood', desc: 'Economic growth & skill development', icon: 'fa-briefcase', iconClass: 'liv-icon', col: S3, section: 'Act for Good' },
-  'rural-healthcare': { title: 'Rural Healthcare', desc: 'Health access for rural communities', icon: 'fa-hospital', iconClass: 'health-icon', col: S3, section: 'Act for Good' },
-  // 'social-support': { title: 'Social Support', desc: 'Community welfare & relief efforts', icon: 'fa-hand-holding-heart', iconClass: 'support-icon', col: S3, section: 'Act for Good' },
-  'community-well-being': { title: 'Community Well-Being', desc: 'Community well-being initiatives & social harmony', icon: 'fa-people-arrows', iconClass: 'support-icon', col: S3, section: 'Act for Good' },
+  'feed-a-monk': {
+    title: 'Monk',
+    desc: 'Monastic life & spiritual discipline',
+    icon: 'fa-praying-hands',
+    iconClass: 'monk-icon',
+    col: S3,
+    section: 'Act for Good',
+  },
+  'the-vision-in-action-of-bhagavad-karma': {
+    title: 'Our Vision',
+    desc: 'Our mission & long-term goals for society',
+    icon: 'fa-eye',
+    iconClass: 'vision-icon',
+    col: S3,
+    section: 'Act for Good',
+  },
+  'support-for-dharma-samrakshana': {
+    title: 'Support',
+    desc: 'How you can contribute & get involved',
+    icon: 'fa-hand-holding-heart',
+    iconClass: 'support-icon',
+    col: S3,
+    section: 'Act for Good',
+  },
+  'pancha-anga-karma-vruksham': {
+    title: 'Pancha Anga',
+    desc: 'The fivefold path of spiritual practice',
+    icon: 'fa-om',
+    iconClass: 'anga-icon',
+    col: S3,
+    section: 'Act for Good',
+  },
+  // ── Initiatives (matching the navigation "Initiatives" dropdown) ────────────
+  'agriculture-development': {
+    title: 'Agriculture Development',
+    desc: 'Sustainable farming, soil health, and rural prosperity',
+    icon: 'fa-seedling',
+    iconClass: 'food-icon',
+    col: S3,
+    section: 'Initiatives',
+  },
+  'de-addiction-programs': {
+    title: 'De-Addiction Programs',
+    desc: 'Holistic recovery through counselling, mindfulness, and spiritual guidance',
+    icon: 'fa-hand-holding-heart',
+    iconClass: 'support-icon',
+    col: S3,
+    section: 'Initiatives',
+  },
+  'environment-protection': {
+    title: 'Environment Protection',
+    desc: 'Protecting nature through conservation, sustainability, and environmental stewardship',
+    icon: 'fa-tree',
+    iconClass: 'env-icon',
+    col: S3,
+    section: 'Initiatives',
+  },
+  'farmer-support': {
+    title: 'Farmer Support',
+    desc: 'Empowering farmers through sustainable practices and community support',
+    icon: 'fa-tractor',
+    iconClass: 'farmer-icon',
+    col: S3,
+    section: 'Initiatives',
+  },
+  'livelihood-for-all': {
+    title: 'Livelihood for All',
+    desc: 'Skill development, entrepreneurship, and economic self-reliance',
+    icon: 'fa-briefcase',
+    iconClass: 'liv-icon',
+    col: S3,
+    section: 'Initiatives',
+  },
+  'rural-self-sufficiency': {
+    title: 'Rural Self-Sufficiency',
+    desc: 'Building stronger villages through sustainable development and self-reliance',
+    icon: 'fa-home',
+    iconClass: 'health-icon',
+    col: S3,
+    section: 'Initiatives',
+  },
+  'community-well-being': {
+    title: 'Community Well-Being',
+    desc: 'Community well-being initiatives & social harmony',
+    icon: 'fa-people-arrows',
+    iconClass: 'support-icon',
+    col: S3,
+    section: 'Initiatives',
+  },
 
   // Store
   // 'store/:category': { title: 'Skincare', desc: 'Herbal & natural skincare essentials', icon: 'fa-hand-sparkles', iconClass: 'skin-icon', col: S4, section: 'Store', link: 'store/skincare' },
@@ -86,11 +232,46 @@ const PAGE_META: Record<string, PageMeta> = {
   // allproducts: { title: 'All Products', desc: 'Browse our complete collection of wellness products', icon: 'fa-layer-group', iconClass: 'store-icon', col: S4, section: 'Store' },
 
   // More
-  news: { title: 'News', desc: 'Latest updates & announcements', icon: 'fa-newspaper', iconClass: 'news-icon', col: S4, section: 'More' },
-  contact: { title: 'Contact', desc: 'Get in touch with our team', icon: 'fa-envelope', iconClass: 'contact-icon', col: S4, section: 'More' },
-  appointment: { title: 'Book Appointment', desc: 'Schedule your spiritual wellness session', icon: 'fa-calendar-check', iconClass: 'appoint-icon', col: S4, section: 'More' },
-  member: { title: 'Become a Member', desc: 'Join our spiritual community', icon: 'fa-user-plus', iconClass: 'member-icon', col: S4, section: 'More' },
-  donation: { title: 'Donation', desc: 'Support our charitable mission', icon: 'fa-hand-holding-usd', iconClass: 'donate-icon', col: S4, section: 'More' },
+  news: {
+    title: 'News',
+    desc: 'Latest updates & announcements',
+    icon: 'fa-newspaper',
+    iconClass: 'news-icon',
+    col: S4,
+    section: 'More',
+  },
+  contact: {
+    title: 'Contact',
+    desc: 'Get in touch with our team',
+    icon: 'fa-envelope',
+    iconClass: 'contact-icon',
+    col: S4,
+    section: 'More',
+  },
+  appointment: {
+    title: 'Book Appointment',
+    desc: 'Schedule your spiritual wellness session',
+    icon: 'fa-calendar-check',
+    iconClass: 'appoint-icon',
+    col: S4,
+    section: 'More',
+  },
+  member: {
+    title: 'Become a Member',
+    desc: 'Join our spiritual community',
+    icon: 'fa-user-plus',
+    iconClass: 'member-icon',
+    col: S4,
+    section: 'More',
+  },
+  donation: {
+    title: 'Donation',
+    desc: 'Support our charitable mission',
+    icon: 'fa-hand-holding-usd',
+    iconClass: 'donate-icon',
+    col: S4,
+    section: 'More',
+  },
 };
 
 @Component({
@@ -111,7 +292,7 @@ export class SitemapComponent {
     const routePaths = new Set(
       this.router.config
         .filter((r) => !(r as { redirectTo?: string }).redirectTo)
-        .map((r) => r.path ?? '')
+        .map((r) => r.path ?? ''),
     );
 
     const bySection = new Map<string, SitemapItem[]>();
@@ -134,7 +315,23 @@ export class SitemapComponent {
 
     // 2. Routes present in the Router but not yet described here → "More".
     // Routes to exclude from the sitemap entirely (hidden pages, commented-out nav items, etc.)
-    const skip = new Set(['', 'home', 'sitemap', '**', 'emotional-wellness', 'physical-wellness', 'therapeutic-wellness', 'maha-vashya', 'social-support', 'store-details', 'allproducts', 'act-for-good']);
+    const skip = new Set([
+      '',
+      'home',
+      'sitemap',
+      '**',
+      'emotional-wellness',
+      'physical-wellness',
+      'therapeutic-wellness',
+      'maha-vashya',
+      'social-support',
+      'store-details',
+      'allproducts',
+      'act-for-good',
+      'environment',
+      'livelihood',
+      'rural-healthcare',
+    ]);
     for (const path of routePaths) {
       if (skip.has(path) || PAGE_META[path] || path.includes(':')) continue;
       const seo = SEO_ROUTES[path];
@@ -153,7 +350,11 @@ export class SitemapComponent {
     for (const section of SECTION_ORDER) {
       const items = bySection.get(section);
       if (items?.length) {
-        groups.push({ heading: section, groupIcon: GROUP_ICONS[section] ?? 'fa-ellipsis-h', items });
+        groups.push({
+          heading: section,
+          groupIcon: GROUP_ICONS[section] ?? 'fa-ellipsis-h',
+          items,
+        });
       }
     }
     return groups;

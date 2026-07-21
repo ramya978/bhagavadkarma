@@ -44,10 +44,12 @@ export const routes: Routes = [
   { path: 'pancha-anga-karma-vruksham', loadComponent: () => import('./pages/act-for-good/pancha-anga/pancha-anga').then(m => m.PanchaAngaComponent) },
 
   // Social Impacts
-  { path: 'environment', loadComponent: () => import('./pages/social_impacts/environment/environment').then(m => m.EnvironmentComponent) },
+  { path: 'agriculture-development', loadComponent: () => import('./pages/agriculture-development/agriculture-development').then(m => m.AgricultureDevelopmentComponent) },
+  { path: 'de-addiction-programs', loadComponent: () => import('./pages/de-addiction-programs/de-addiction-programs').then(m => m.DeAddictionProgramsComponent) },
+  { path: 'environment-protection', loadComponent: () => import('./pages/social_impacts/environment/environment').then(m => m.EnvironmentComponent) },
   { path: 'farmer-support', loadComponent: () => import('./pages/social_impacts/farmer-support/farmer-support').then(m => m.FarmerSupportComponent) },
-  { path: 'livelihood', loadComponent: () => import('./pages/social_impacts/livelihood/livelihood').then(m => m.LivelihoodComponent) },
-  { path: 'rural-healthcare', loadComponent: () => import('./pages/social_impacts/rural-healthcare/rural-healthcare').then(m => m.RuralHealthcareComponent) },
+  { path: 'livelihood-for-all', loadComponent: () => import('./pages/social_impacts/livelihood/livelihood').then(m => m.LivelihoodComponent) },
+  { path: 'rural-self-sufficiency', loadComponent: () => import('./pages/social_impacts/rural-healthcare/rural-healthcare').then(m => m.RuralHealthcareComponent) },
   { path: 'social-support', loadComponent: () => import('./pages/social_impacts/support/support').then(m => m.Support) },
   { path: 'community-well-being', loadComponent: () => import('./pages/social_impacts/community-well-being/community-well-being').then(m => m.CommunityWellBeingComponent) },
 
@@ -72,4 +74,9 @@ export const routes: Routes = [
   { path: 'vision', redirectTo: 'the-vision-in-action-of-bhagavad-karma', pathMatch: 'full' },
   { path: 'support', redirectTo: 'support-for-dharma-samrakshana', pathMatch: 'full' },
   { path: 'pacha-anga', redirectTo: 'pancha-anga-karma-vruksham', pathMatch: 'full' },
+
+  // ── Backward-compatible redirects for renamed Social Impact routes ─────────
+  { path: 'environment', redirectTo: 'environment-protection', pathMatch: 'full' },
+  { path: 'livelihood', redirectTo: 'livelihood-for-all', pathMatch: 'full' },
+  { path: 'rural-healthcare', redirectTo: 'rural-self-sufficiency', pathMatch: 'full' },
 ];
